@@ -1,70 +1,107 @@
-# Academic-Publication-and-Citation-Tracking-System-Database
+# Akademik Yayın Yönetim Sistemi
 
-Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin tutulmasını sağlayan bir sistem geliştirmeyi hedefler. Sistem; akademik yayınlar, yazarlar, yayınevleri, üniversiteler, konferanslar, koleksiyonlar ve ödüller gibi bileşenleri içermekte olup, bunlar arasındaki ilişkileri yönetir. Kullanıcı rolleri, erişim hakları ve çeşitli proje ve finans kaynakları gibi yönetimsel özellikler de bulunmaktadır. Sistem; özellikle yayımlanan akademik eserlerin takibi, atıflar ve akademik ödüllerin yönetimini mümkün kılacak şekilde yapılandırılmıştır.
+Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin tutulmasını sağlayan bir sistem geliştirmeyi amaçlamaktadır. Sistem; akademik yayınlar, yazarlar, yayınevleri, üniversiteler, konferanslar, koleksiyonlar ve ödüller gibi bileşenleri ve aralarındaki ilişkileri yönetir. Ayrıca kullanıcı rolleri, erişim hakları, projeler ve finans kaynakları gibi yönetimsel özellikler de bulunmaktadır. Bu sistem, yayımlanan akademik eserlerin takibi, atıflar ve akademik ödüllerin yönetimi gibi işlevsellikler sunar.
 
-Temel Tablolar ve Açıklamaları
+## Veri Tabanı Şeması
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/e9bbf900-b176-43f2-8b69-961ce36cc737)
 
-1-Yayın_Türü (yayin_turu_id, tur_adi): Bu tablo, akademik çalışmaların türlerini belirtir. Yayın türü, makale, kitap, rapor veya konferans bildirisi gibi çeşitli formatları içerebilir. yayin_turu_id her tür için benzersiz bir tanımlayıcıdır. tur_adi ise yayın türünün adını içerir, böylece hangi türde yayının sistemde yer aldığı kolayca anlaşılabilir.
 
-2-Yayıncı (yayinci_id, yayinci_adi, adres, telefon, enlem, boylam): Yayıncı tablosu, yayınların yayımlandığı yayınevi veya kurumların bilgilerini içerir. Her yayıncı, yayinci_id ile benzersiz bir şekilde tanımlanır. yayinci_adi, adres, telefon, enlem ve boylam alanları ise yayıncı kurumun iletişim ve konum bilgilerini içerir. Yayıncı, yayınların basıldığı veya dijital ortamda yayınlandığı kurumları temsil eder.
+## Tablolar ve Açıklamaları
 
-3-Konferans (konferans_id, konferans_adi, duzenleyen_kurum, duzenlenme_tarihi, duzenlenme_yeri): Bu tablo, düzenlenen konferansların bilgilerini saklar. konferans_adi, konferansın adını, duzenleyen_kurum ise konferansı düzenleyen kuruluşu ifade eder. duzenlenme_tarihi ve duzenlenme_yeri alanları ise konferansın yapıldığı tarih ve yeri belirtir. Konferanslar, genellikle akademik topluluğun bir araya geldiği ve bilgilerin paylaşıldığı etkinliklerdir.
+### Temel Tablolar
 
-4-Üniversite (universite_id, universite_adi, adres, ulke, enlem, boylam): Bu tabloda, üniversitelerin bilgileri saklanır. universite_id her üniversiteyi benzersiz olarak tanımlar. universite_adi, adres, ulke, enlem ve boylam alanları üniversitenin adı, adresi, bulunduğu ülke ve coğrafi konumunu içerir. Üniversite bilgileri, yazarların bağlı olduğu kurumları tanımlamak için kullanılır.
+1. **Yayın_Türü**: Akademik çalışmaların türlerini tanımlar. Örneğin makale, kitap, rapor veya konferans bildirisi.
+   - **yayin_turu_id**: Yayın türünün benzersiz kimliği.
+   - **tur_adi**: Yayın türü adı.
 
-5-Bölüm (bolum_id, bolum_adi, universite_id): Üniversiteye bağlı olan bölümleri tanımlar. bolum_id her bölümü benzersiz olarak tanımlar ve universite_id ile hangi üniversiteye bağlı olduğunu gösterir. bolum_adi, bölümün adını ifade eder. Bu tablo, yazarların çalıştığı akademik bölümleri belirtir.
+2. **Yayıncı**: Yayınların yayımlandığı yayınevi veya kurum bilgilerini içerir.
+   - **yayinci_id**: Yayıncıyı benzersiz olarak tanımlar.
+   - **yayinci_adi, adres, telefon, enlem, boylam**: Yayıncı adı, iletişim ve konum bilgileri.
 
-6-Koleksiyon (koleksiyon_id, koleksiyon_adi, aciklama): Yayınların dahil olabileceği koleksiyonları tanımlar. koleksiyon_id benzersiz bir koleksiyon kimliği sağlar, koleksiyon_adi koleksiyonun adını belirtir, ve aciklama alanı koleksiyon hakkında bilgi verir. Koleksiyonlar, belirli bir tema ya da konudaki yayınların gruplandığı bölümleri temsil eder.
+3. **Konferans**: Düzenlenen konferansların bilgilerini saklar.
+   - **konferans_id**: Konferansı benzersiz olarak tanımlar.
+   - **konferans_adi, duzenleyen_kurum, duzenlenme_tarihi, duzenlenme_yeri**: Konferans detayları.
 
-7-Kullanıcı (kullanici_id, kullanici_adi, sifre, ad, soyad, rol): Sistemi kullanan kullanıcıların bilgilerini içerir. kullanici_id her kullanıcıyı benzersiz olarak tanımlar. rol alanı, kullanıcının sistemdeki yetkilerini belirler. Kullanıcı tablosu, yöneticiler, yazarlar veya okuyucular gibi farklı rollerdeki kişileri içerir.
+4. **Üniversite**: Üniversitelerin bilgilerini içerir.
+   - **universite_id**: Üniversiteyi benzersiz olarak tanımlar.
+   - **universite_adi, adres, ulke, enlem, boylam**: Üniversite adı ve konumu.
 
-8-Yazar (yazar_id, ad, soyad, afiliasyon, email, universite_id, bolum_id): Bu tablo, yazarlara ait kişisel ve profesyonel bilgileri içerir. yazar_id, her yazarı benzersiz bir şekilde tanımlar. universite_id ve bolum_id yazarın bağlı olduğu üniversite ve bölümü belirtir. Bu bilgiler, yazarların kimliklerini ve akademik bağlantılarını tanımlamak için kullanılır.
+5. **Bölüm**: Üniversiteye bağlı bölümleri tanımlar.
+   - **bolum_id**: Bölümü benzersiz olarak tanımlar.
+   - **bolum_adi, universite_id**: Bölüm adı ve üniversite kimliği.
 
-9-Yayın (yayin_id, baslik, yayin_tarihi, yayin_yeri, DOI, ozet, anahtar_kelimeler, yayin_turu_id, yayinci_id, konferans_id, koleksiyon_id, dil): Yayın tablosu, yayınların temel bilgilerini içerir. yayin_id her yayını benzersiz olarak tanımlar. baslik, ozet, ve anahtar_kelimeler alanları yayın hakkında bilgi verir. yayin_turu_id, yayinci_id, konferans_id ve koleksiyon_id diğer tablolarla ilişkilerini belirtir.
+6. **Koleksiyon**: Yayınların dahil olabileceği koleksiyonları tanımlar.
+   - **koleksiyon_id**: Koleksiyon kimliği.
+   - **koleksiyon_adi, aciklama**: Koleksiyon adı ve açıklaması.
 
-10-Kategori (kategori_id, kategori_adi): Yayınların dahil olduğu kategorileri tanımlar. kategori_id her kategoriyi benzersiz olarak tanımlar ve kategori_adi kategorinin adını belirtir. Kategoriler, yayınları sınıflandırmak için kullanılır.
+7. **Kullanıcı**: Sistem kullanıcılarının bilgilerini içerir.
+   - **kullanici_id**: Kullanıcı kimliği.
+   - **kullanici_adi, sifre, ad, soyad, rol**: Kullanıcı adı, rol ve kimlik bilgileri.
 
-11-Alan (alan_id, alan_adi): Yazarların uzmanlık alanlarını tanımlar. alan_id benzersiz bir tanımlayıcıdır ve alan_adi alanın adını içerir. Alanlar, yazarların akademik veya profesyonel uzmanlıklarını belirlemek için kullanılır.
+8. **Yazar**: Yazarların kişisel ve profesyonel bilgilerini içerir.
+   - **yazar_id**: Yazar kimliği.
+   - **ad, soyad, afiliasyon, email, universite_id, bolum_id**: Yazar detayları ve akademik bağlantılar.
 
-12-Unvan (unvan_id, unvan_adi): Yazarların akademik veya profesyonel unvanlarını tanımlar. unvan_id her unvanı benzersiz bir şekilde tanımlar ve unvan_adi unvanın adını belirtir. Unvanlar, yazarların statülerini belirtmek için kullanılır.
+9. **Yayın**: Yayınların temel bilgilerini içerir.
+   - **yayin_id**: Yayını benzersiz olarak tanımlar.
+   - **baslik, yayin_tarihi, yayin_yeri, DOI, ozet, anahtar_kelimeler**: Yayın başlığı, DOI ve diğer detaylar.
 
-13-Ödül (odul_id, odul_adi): Yazarların kazandığı ödülleri içerir. odul_id ödül için benzersiz bir tanımlayıcıdır, odul_adi ödülün adını içerir. Bu tablo, yazarların akademik başarılarını gösterir.
+10. **Kategori**: Yayınların dahil olduğu kategorileri içerir.
+   - **kategori_id**: Kategori kimliği.
+   - **kategori_adi**: Kategori adı.
 
-14-Proje (proje_id, proje_adi, aciklama, baslangic_tarihi, bitis_tarihi): Araştırma projelerini tanımlar. proje_id her projeyi benzersiz olarak tanımlar. proje_adi, aciklama, baslangic_tarihi ve bitis_tarihi alanları projenin adı, açıklaması, başlangıç ve bitiş tarihlerini içerir. Projeler, yayınların ortaya çıkmasına katkıda bulunan çalışmalar olabilir.
+11. **Alan**: Yazarların uzmanlık alanlarını tanımlar.
+   - **alan_id**: Alan kimliği.
+   - **alan_adi**: Alan adı.
 
-15-Finans_Kaynağı (finans_kaynağı_id, kaynak_adi, kaynak_turu): Projeler için sağlanan finansman kaynaklarını tanımlar. finans_kaynağı_id benzersiz bir tanımlayıcıdır. kaynak_adi ve kaynak_turu finansman kaynağının adı ve türünü belirtir. Finans kaynakları, projelerin desteklenmesinde önemlidir.
+12. **Unvan**: Yazarların akademik veya profesyonel unvanlarını tanımlar.
+   - **unvan_id**: Unvan kimliği.
+   - **unvan_adi**: Unvan adı.
 
-16-Atıflar (atifa_id, kaynak_yayin_id, hedef_yayin_id, atif_sayfasi, atif_context): Bu tablo, bir yayına yapılan atıfları saklar. atifa_id, her atıf için benzersiz bir kimliktir. kaynak_yayin_id, atıfın yapıldığı yayının tanımlayıcısını belirtirken, hedef_yayin_id atıf yapılan yayının tanımlayıcısını gösterir. atif_sayfasi, atıfın yapıldığı sayfanın numarasını içerir ve pozitif bir tam sayı olmalıdır. atif_context, atıfla ilgili açıklayıcı bilgileri veya notları saklar. Bu tablo, yayınlar arasındaki ilişkileri göstermek ve atıf detaylarını yönetmek için kullanılır.
+13. **Ödül**: Yazarların kazandığı ödülleri içerir.
+   - **odul_id**: Ödül kimliği.
+   - **odul_adi**: Ödül adı.
 
-Ara Tablolar ve İlişkiler
+14. **Proje**: Araştırma projelerini tanımlar.
+   - **proje_id**: Proje kimliği.
+   - **proje_adi, aciklama, baslangic_tarihi, bitis_tarihi**: Proje detayları.
 
-1-Yayin_Yazar (yayin_id, yazar_id): Yayınlar ile yazarlar arasındaki n-n ilişkiyi yönetir. Bu ara tablo, her yayının birden fazla yazar tarafından yazılabilmesi ve bir yazarın da birden fazla yayına katkıda bulunabilmesi durumunu düzenler. Akademik işbirlikleri ve yayınların yazar katkılarını tanımlamak için kullanılan bu tablo, çok yazarlı yayınları ve bir yazarın farklı projelerdeki katkılarını takip etmeyi sağlar. (n-n)
+15. **Finans_Kaynağı**: Projeler için sağlanan finans kaynaklarını tanımlar.
+   - **finans_kaynağı_id**: Finans kaynağı kimliği.
+   - **kaynak_adi, kaynak_turu**: Kaynağın adı ve türü.
 
-2-Yayin_Kategori (yayin_id, kategori_id): Yayınlar ile kategoriler arasındaki n-n ilişkiyi tanımlar. Bu ara tablo, her yayının birden fazla kategoriye atanabileceği ve her kategorinin birden fazla yayını kapsayabileceği durumu ifade eder. Yayınların konu başlıklarına veya disiplinlere göre sınıflandırılması için kullanılır ve kullanıcıların belirli bir konudaki yayınları bulmalarını kolaylaştırır. (n-n)
+16. **Atıflar**: Bir yayına yapılan atıfları saklar.
+   - **atifa_id**: Atıf kimliği.
+   - **kaynak_yayin_id, hedef_yayin_id, atif_sayfasi, atif_context**: Atıf yapılan yayının detayları.
 
-3-Yazar_Alan (yazar_id, alan_id): Yazarlar ile akademik veya araştırma alanları arasındaki n-n ilişkiyi temsil eder. Bir yazarın birden fazla alanda çalışabilmesi ve her alanın birden fazla yazarla ilişkilendirilebilmesi durumu bu tablo üzerinden takip edilir. Bu yapı, yazarların uzmanlık alanlarını belgelemek ve farklı alanlarda işbirliklerini analiz etmek için kullanılır. (n-n)
+### Ara Tablolar ve İlişkiler
 
-4-Yazar_Unvan (yazar_id, unvan_id): Yazarlar ile unvanlar arasındaki n-n ilişkiyi yönetir. Her yazar birden fazla akademik veya mesleki unvana sahip olabilirken, her unvan da birden fazla yazara atanabilir. Bu ilişki, akademik ve profesyonel kariyerin ilerleyişini belgelemek ve yazarların sahip olduğu unvanları tanımlamak amacıyla kullanılır. (n-n)
+1. **Yayin_Yazar**: Yayın ve yazarlar arasındaki n-n ilişkiyi düzenler.
+2. **Yayin_Kategori**: Yayın ve kategoriler arasındaki n-n ilişkiyi tanımlar.
+3. **Yazar_Alan**: Yazarlar ile uzmanlık alanları arasındaki n-n ilişkiyi temsil eder.
+4. **Yazar_Unvan**: Yazarlar ile unvanlar arasındaki n-n ilişkiyi düzenler.
+5. **Yazar_Odul**: Yazarlar ile ödüller arasındaki n-n ilişkiyi temsil eder.
+6. **Yazar_Yayıncı**: Yazarlar ile yayıncılar arasındaki n-n ilişkiyi tanımlar.
+7. **Proje_Yayin**: Projeler ve yayınlar arasındaki n-n ilişkiyi yönetir.
+8. **Proje_FinansKaynağı**: Projeler ve finans kaynakları arasındaki n-n ilişkiyi tanımlar.
+9. **Kullanici_Proje**: Kullanıcılar ile projeler arasındaki n-n ilişkiyi düzenler.
 
-5-Yazar_Odul (yazar_id, odul_id): Yazarlar ile ödüller arasındaki n-n ilişkiyi temsil eder. Her yazar birden fazla ödül alabilirken, her ödül de birden fazla yazara verilebilir. Bu tablo, yazarların akademik başarılarını ve ödüllerini izlemek, ödüllerin yazarlar arasındaki dağılımını analiz etmek için önemlidir. (n-n)
+### Temel Tablolar Arasındaki 1-n İlişkiler
 
-6-Yazar_Yayıncı (yazar_id, yayinci_id): Yazarlar ile yayıncılar arasındaki n-n ilişkiyi tanımlar. Bir yazar birden fazla yayıncı ile çalışabilir ve bir yayıncı birden fazla yazara yayın sağlayabilir. Bu ilişki, yazarların farklı yayınevleri ile ilişkilerini ve yayınevlerinin yazar portföyünü izlemeye yardımcı olur. (n-n)
+- **Yayın_Türü ve Yayın**: Bir yayın yalnızca bir türe ait olabilir, ancak bir tür birden fazla yayını içerebilir.
+- **Yayıncı ve Yayın**: Her yayının yalnızca bir yayıncısı olabilir, ancak bir yayıncı birden fazla yayını yayımlayabilir.
+- **Konferans ve Yayın**: Bir yayının yalnızca bir konferansa ait olması, ancak bir konferansın birden fazla yayını içerebilmesi.
+- **Üniversite ve Bölüm**: Her bölüm yalnızca bir üniversiteye bağlıdır, ancak bir üniversite birden fazla bölüm içerebilir.
+- **Bölüm ve Yazar**: Her yazar yalnızca bir bölümde görev alabilir, ancak bir bölümde birden fazla yazar görev yapabilir.
 
-7-Proje_Yayin (proje_id, yayin_id): Projeler ile yayınlar arasındaki n-n ilişkiyi yönetir. Bir proje birçok yayını kapsayabilir ve bir yayın birçok projede kullanılabilir. Bu ilişki, projelerle ilgili yayınların izlenmesi, projelerin bilimsel çıktılarını değerlendirme açısından önemlidir. (n-n)
+## Kurulum ve Kullanım
 
-8-Proje_FinansKaynağı (proje_id, finans_kaynağı_id): Projeler ile finans kaynakları arasındaki n-n ilişkiyi tanımlar. Bu tablo, her projenin birden fazla finansman kaynağı tarafından desteklenmesini ve her finans kaynağının da birden fazla projeye fon sağlamasını sağlar. Bu ilişki, projelerin finansal durumunu analiz etmek ve kaynak dağılımını yönetmek için kullanılır. (n-n)
+Projeyi çalıştırmak için aşağıdaki adımları takip edin:
 
-9-Kullanici_Proje (kullanici_id, proje_id): Kullanıcılar ile projeler arasındaki n-n ilişkiyi yönetir. Bir kullanıcı birden fazla projede görev alabilirken, bir proje de birden fazla kullanıcı tarafından yürütülebilir. Bu tablo, proje katılımcılarını izlemek, projelerdeki sorumlulukları ve katılımcı ağlarını yönetmek için kullanılır. (n-n)
+1. Veritabanını oluşturun ve tabloları yukarıdaki yapıya göre kurun.
+2. Bağlantı bilgilerinizi yapılandırarak veritabanına erişim sağlayın.
+3. Proje dosyalarını gerekli veritabanı bağlantısı ve uygulama ayarlarına göre yapılandırarak uygulamayı başlatın.
 
-10-Temel Tablolar Arasındaki 1-n İlişkiler
-Yayın_Türü ve Yayın: Yayın türleri ile yayınlar arasındaki 1-n ilişki, her yayının yalnızca bir türe ait olabileceğini, ancak bir türün birden fazla yayını içerebileceğini ifade eder. Bu ilişki, yayınların türlere göre sınıflandırılmasını sağlar; örneğin, makale, bildiri, dergi yazısı gibi türler belirlenebilir ve yayınlar buna göre gruplanabilir. (1-n)
+## Lisans
+Bu proje MIT lisansı ile lisanslanmıştır. 
 
-11-Yayıncı ve Yayın: Yayıncılar ile yayınlar arasındaki 1-n ilişki, her yayının yalnızca bir yayıncıya ait olabileceğini, ancak bir yayıncının birden fazla yayını yayımlayabileceğini gösterir. Bu, yayınların hangi yayıncı tarafından yayımlandığını izlemek için önemlidir ve yayınevi bazında içerik yönetimini kolaylaştırır. (1-n)
-
-12-Konferans ve Yayın: Konferanslar ile yayınlar arasındaki 1-n ilişki, bir yayının yalnızca bir konferansa ait olabileceğini, ancak bir konferansın birden fazla yayını kapsayabileceğini ifade eder. Bu ilişki, yayınların hangi konferansta sunulduğunu takip etmek ve konferans bazında içerik yönetimi sağlamak için önemlidir. (1-n)
-
-13-Üniversite ve Bölüm: Üniversiteler ile bölümler arasındaki 1-n ilişki, her bölümün yalnızca bir üniversiteye bağlı olduğunu, ancak bir üniversitenin birden fazla bölümü içerebileceğini ifade eder. Bu ilişki, akademik yapı içinde bölümlerin hangi üniversiteye bağlı olduğunu ve üniversitelerin bölüm dağılımını gösterir. (1-n)
-
-14-Bölüm ve Yazar: Bölümler ile yazarlar arasındaki 1-n ilişki, her yazarın yalnızca bir bölümde çalışabileceğini, ancak bir bölümde birden fazla yazarın görev alabileceğini belirtir. Bu ilişki, yazarların akademik bölümlerini tanımlamak ve bölüm bazında yazarların yönetimini sağlamak için kullanılır. (1-n)
-
-15-Koleksiyon ve Yayın: Koleksiyonlar ile yayınlar arasındaki 1-n ilişki, her yayının yalnızca bir koleksiyona ait olabileceğini, ancak bir koleksiyonun birden fazla yayını içerebileceğini ifade eder. Bu ilişki, yayınların belirli tematik veya kurumsal koleksiyonlara atanmasını sağlar ve koleksiyonlar bazında yayın yönetimini kolaylaştırır. (1-n)
