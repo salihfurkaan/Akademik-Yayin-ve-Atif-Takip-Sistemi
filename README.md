@@ -5,7 +5,8 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 ## Veri Tabanı Şeması
 ![Veri Tabanı Şeması](https://github.com/user-attachments/assets/e2240128-de86-4efd-8279-509c4dcf693f)
 
-## Veritabanı Gereksinimleri
+
+## Veritabanı Tablo İlişkileri
 
 | İlişki No | İlişki                  | Açıklama                                                                                                                                                                                                 |
 |-----------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
