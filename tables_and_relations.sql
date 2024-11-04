@@ -1,9 +1,9 @@
-CREATE TABLE Yayýn_Türü (
+CREATE TABLE Yayin_Turu (
     yayin_turu_id INT PRIMARY KEY IDENTITY(1,1),
     tur_adi VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Yayýncý (
+CREATE TABLE Yayinci (
     yayinci_id INT PRIMARY KEY IDENTITY(1,1),
     yayinci_adi VARCHAR(255) NOT NULL,
     adres VARCHAR(255) NOT NULL,
@@ -67,8 +67,8 @@ CREATE TABLE Yayin (
     konferans_id INT,
     koleksiyon_id INT,
     dil VARCHAR(50) NOT NULL,
-    FOREIGN KEY (yayin_turu_id) REFERENCES Yayýn_Türü(yayin_turu_id),
-    FOREIGN KEY (yayinci_id) REFERENCES Yayýncý(yayinci_id),
+    FOREIGN KEY (yayin_turu_id) REFERENCES Yayin_Turu(yayin_turu_id),
+    FOREIGN KEY (yayinci_id) REFERENCES Yayinci(yayinci_id),
     FOREIGN KEY (konferans_id) REFERENCES Konferans(konferans_id),
     FOREIGN KEY (koleksiyon_id) REFERENCES Koleksiyon(koleksiyon_id)
 );
@@ -89,7 +89,7 @@ CREATE TABLE Kullanici (
     sifre VARCHAR(100) NOT NULL,
     ad VARCHAR(100) NOT NULL,
     soyad VARCHAR(100) NOT NULL,
-    rol VARCHAR(50) NOT NULL CHECK (rol IN ('yönetici', 'editör', 'okuyucu'))
+    rol VARCHAR(50) NOT NULL CHECK (rol IN ('yonetici', 'editor', 'okuyucu'))
 );
 
 CREATE TABLE Proje (
@@ -110,8 +110,8 @@ CREATE TABLE Kategori (
     kategori_adi VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE Finans_Kaynaðý (
-    finans_kaynaðý_id INT PRIMARY KEY IDENTITY(1,1),
+CREATE TABLE Finans_Kaynagi (
+    finans_kaynagi_id INT PRIMARY KEY IDENTITY(1,1),
     kaynak_adi VARCHAR(255) NOT NULL,
     kaynak_turu VARCHAR(100) NOT NULL
 );
@@ -126,7 +126,7 @@ CREATE TABLE Odul (
     odul_adi VARCHAR(100) NOT NULL
 );
 
--- Ara Tablolar
+-- Junction Tables
 CREATE TABLE Yayin_Yazar (
     yayin_id INT NOT NULL,
     yazar_id INT NOT NULL,
@@ -167,12 +167,12 @@ CREATE TABLE Yazar_Odul (
     FOREIGN KEY (odul_id) REFERENCES Odul(odul_id)
 );
 
-CREATE TABLE Yazar_Yayýncý (
+CREATE TABLE Yazar_Yayinci (
     yazar_id INT NOT NULL,
     yayinci_id INT NOT NULL,
     PRIMARY KEY (yazar_id, yayinci_id),
     FOREIGN KEY (yazar_id) REFERENCES Yazar(yazar_id),
-    FOREIGN KEY (yayinci_id) REFERENCES Yayýncý(yayinci_id)
+    FOREIGN KEY (yayinci_id) REFERENCES Yayinci(yayinci_id)
 );
 
 CREATE TABLE Proje_Yayin (
@@ -183,12 +183,12 @@ CREATE TABLE Proje_Yayin (
     FOREIGN KEY (yayin_id) REFERENCES Yayin(yayin_id)
 );
 
-CREATE TABLE Proje_FinansKaynaðý (
+CREATE TABLE Proje_FinansKaynagi (
     proje_id INT NOT NULL,
-    finans_kaynaðý_id INT NOT NULL,
-    PRIMARY KEY (proje_id, finans_kaynaðý_id),
+    finans_kaynagi_id INT NOT NULL,
+    PRIMARY KEY (proje_id, finans_kaynagi_id),
     FOREIGN KEY (proje_id) REFERENCES Proje(proje_id),
-    FOREIGN KEY (finans_kaynaðý_id) REFERENCES Finans_Kaynaðý(finans_kaynaðý_id)
+    FOREIGN KEY (finans_kaynagi_id) REFERENCES Finans_Kaynagi(finans_kaynagi_id)
 );
 
 CREATE TABLE Kullanici_Proje (
