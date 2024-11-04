@@ -3,7 +3,8 @@
 Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin tutulmasını sağlayan bir sistem geliştirmeyi amaçlamaktadır. Sistem; akademik yayınlar, yazarlar, yayınevleri, üniversiteler, konferanslar, koleksiyonlar ve ödüller gibi bileşenleri ve aralarındaki ilişkileri yönetir. Ayrıca kullanıcı rolleri, erişim hakları, projeler ve finans kaynakları gibi yönetimsel özellikler de bulunmaktadır. Bu sistem, yayımlanan akademik eserlerin takibi, atıflar ve akademik ödüllerin yönetimi gibi işlevsellikler sunar.
 
 ## Veri Tabanı Şeması
-![Veri Tabanı Şeması](https://github.com/user-attachments/assets/e9bbf900-b176-43f2-8b69-961ce36cc737)
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/992075aa-4274-4ac7-99e3-8ed7ddbeed93)
+
 
 
 ## Tablolar ve Açıklamaları
