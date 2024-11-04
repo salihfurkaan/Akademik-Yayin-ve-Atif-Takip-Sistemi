@@ -6,19 +6,18 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 ![Veri Tabanı Şeması](https://github.com/user-attachments/assets/e2240128-de86-4efd-8279-509c4dcf693f)
 
 ## Veritabanı Tablo İlişkileri
-| Ana Tablo 1 | Ara Tablo             | Ana Tablo 2       | Ara Tablo ile İlişki Türü        |
-|-------------|------------------------|-------------------|----------------------------------|
-| Yayin       | Yayin_Yazar           | Yazar            | Yayin (1-N), Yazar (1-N)         |
-| Yayin       | Yayin_Kategori        | Kategori         | Yayin (1-N), Kategori (1-N)      |
-| Yazar       | Yazar_Alan            | Alan             | Yazar (1-N), Alan (1-N)          |
-| Yazar       | Yazar_Unvan           | Unvan            | Yazar (1-N), Unvan (1-N)         |
-| Yazar       | Yazar_Odul            | Odul             | Yazar (1-N), Odul (1-N)          |
-| Yazar       | Yazar_Yayıncı         | Yayinci          | Yazar (1-N), Yayinci (1-N)       |
-| Proje       | Proje_Yayin           | Yayin            | Proje (1-N), Yayin (1-N)         |
-| Proje       | Proje_FinansKaynağı   | Finans_Kaynağı   | Proje (1-N), Finans_Kaynağı (1-N)|
-| Kullanici   | Kullanici_Proje       | Proje            | Kullanici (1-N), Proje (1-N)     |
 
+1- Yayın_Türü ve Yayın: Yayın türleri ile yayınlar arasındaki 1-n ilişki, her yayının yalnızca bir türe ait olabileceğini, ancak bir türün birden fazla yayını içerebileceğini ifade eder. Bu ilişki, yayınların türlere göre sınıflandırılmasını sağlar; örneğin, makale, bildiri, dergi yazısı gibi türler belirlenebilir ve yayınlar buna göre gruplanabilir. (1-n)
 
+2-Yayıncı ve Yayın: Yayıncılar ile yayınlar arasındaki 1-n ilişki, her yayının yalnızca bir yayıncıya ait olabileceğini, ancak bir yayıncının birden fazla yayını yayımlayabileceğini gösterir. Bu, yayınların hangi yayıncı tarafından yayımlandığını izlemek için önemlidir ve yayınevi bazında içerik yönetimini kolaylaştırır. (1-n)
+
+3-Konferans ve Yayın: Konferanslar ile yayınlar arasındaki 1-n ilişki, bir yayının yalnızca bir konferansa ait olabileceğini, ancak bir konferansın birden fazla yayını kapsayabileceğini ifade eder. Bu ilişki, yayınların hangi konferansta sunulduğunu takip etmek ve konferans bazında içerik yönetimi sağlamak için önemlidir. (1-n)
+
+4-Üniversite ve Bölüm: Üniversiteler ile bölümler arasındaki 1-n ilişki, her bölümün yalnızca bir üniversiteye bağlı olduğunu, ancak bir üniversitenin birden fazla bölümü içerebileceğini ifade eder. Bu ilişki, akademik yapı içinde bölümlerin hangi üniversiteye bağlı olduğunu ve üniversitelerin bölüm dağılımını gösterir. (1-n)
+
+5-Bölüm ve Yazar: Bölümler ile yazarlar arasındaki 1-n ilişki, her yazarın yalnızca bir bölümde çalışabileceğini, ancak bir bölümde birden fazla yazarın görev alabileceğini belirtir. Bu ilişki, yazarların akademik bölümlerini tanımlamak ve bölüm bazında yazarların yönetimini sağlamak için kullanılır. (1-n)
+
+6-Koleksiyon ve Yayın: Koleksiyonlar ile yayınlar arasındaki 1-n ilişki, her yayının yalnızca bir koleksiyona ait olabileceğini, ancak bir koleksiyonun birden fazla yayını içerebileceğini ifade eder. Bu ilişki, yayınların belirli tematik veya kurumsal koleksiyonlara atanmasını sağlar ve koleksiyonlar bazında yayın yönetimini kolaylaştırır. (1-n)
 
 ## Kurulum
 
