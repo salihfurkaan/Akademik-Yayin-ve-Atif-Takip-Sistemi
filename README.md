@@ -9,39 +9,41 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 Temel Tablolar ve Açıklamaları
 
-1-Yayın_Türü (yayin_turu_id, tur_adi): Bu tablo, akademik çalışmaların türlerini belirtir. Yayın türü, makale, kitap, rapor veya konferans bildirisi gibi çeşitli formatları içerebilir. yayin_turu_id her tür için benzersiz bir tanımlayıcıdır. tur_adi ise yayın türünün adını içerir, böylece hangi türde yayının sistemde yer aldığı kolayca anlaşılabilir.
+__1-Yayın_Türü (yayin_turu_id, tur_adi):__ Bu tablo, akademik çalışmaların türlerini belirtir. Yayın türü, makale, kitap, rapor veya konferans bildirisi gibi çeşitli formatları içerebilir. yayin_turu_id her tür için benzersiz bir tanımlayıcıdır. tur_adi ise yayın türünün adını içerir, böylece hangi türde yayının sistemde yer aldığı kolayca anlaşılabilir.
 
-2-Yayıncı (yayinci_id, yayinci_adi, adres, telefon, enlem, boylam): Yayıncı tablosu, yayınların yayımlandığı yayınevi veya kurumların bilgilerini içerir. Her yayıncı, yayinci_id ile benzersiz bir şekilde tanımlanır. yayinci_adi, adres, telefon, enlem ve boylam alanları ise yayıncı kurumun iletişim ve konum bilgilerini içerir. Yayıncı, yayınların basıldığı veya dijital ortamda yayınlandığı kurumları temsil eder.
+__2-Yayıncı (yayinci_id, yayinci_adi, adres, telefon, enlem, boylam):__ Yayıncı tablosu, yayınların yayımlandığı yayınevi veya kurumların bilgilerini içerir. Her yayıncı, yayinci_id ile benzersiz bir şekilde tanımlanır. yayinci_adi, adres, telefon, enlem ve boylam alanları ise yayıncı kurumun iletişim ve konum bilgilerini içerir. Yayıncı, yayınların basıldığı veya dijital ortamda yayınlandığı kurumları temsil eder.
 
-3-Konferans (konferans_id, konferans_adi, duzenleyen_kurum, duzenlenme_tarihi, duzenlenme_yeri): Bu tablo, düzenlenen konferansların bilgilerini saklar. konferans_adi, konferansın adını, duzenleyen_kurum ise konferansı düzenleyen kuruluşu ifade eder. duzenlenme_tarihi ve duzenlenme_yeri alanları ise konferansın yapıldığı tarih ve yeri belirtir. Konferanslar, genellikle akademik topluluğun bir araya geldiği ve bilgilerin paylaşıldığı etkinliklerdir.
+__3-Konferans (konferans_id, konferans_adi, duzenleyen_kurum, duzenlenme_tarihi, duzenlenme_yeri):__ Bu tablo, düzenlenen konferansların bilgilerini saklar. konferans_adi, konferansın adını, duzenleyen_kurum ise konferansı düzenleyen kuruluşu ifade eder. duzenlenme_tarihi ve duzenlenme_yeri alanları ise konferansın yapıldığı tarih ve yeri belirtir. Konferanslar, genellikle akademik topluluğun bir araya geldiği ve bilgilerin paylaşıldığı etkinliklerdir.
 
-4-Üniversite (universite_id, universite_adi, adres, ulke, enlem, boylam): Bu tabloda, üniversitelerin bilgileri saklanır. universite_id her üniversiteyi benzersiz olarak tanımlar. universite_adi, adres, ulke, enlem ve boylam alanları üniversitenin adı, adresi, bulunduğu ülke ve coğrafi konumunu içerir. Üniversite bilgileri, yazarların bağlı olduğu kurumları tanımlamak için kullanılır.
+__4-Üniversite (universite_id, universite_adi, adres, ulke, enlem, boylam):__ Bu tabloda, üniversitelerin bilgileri saklanır. universite_id her üniversiteyi benzersiz olarak tanımlar. universite_adi, adres, ulke, enlem ve boylam alanları üniversitenin adı, adresi, bulunduğu ülke ve coğrafi konumunu içerir. Üniversite bilgileri, yazarların bağlı olduğu kurumları tanımlamak için kullanılır.
 
-5-Bölüm (bolum_id, bolum_adi, universite_id): Üniversiteye bağlı olan bölümleri tanımlar. bolum_id her bölümü benzersiz olarak tanımlar ve universite_id ile hangi üniversiteye bağlı olduğunu gösterir. bolum_adi, bölümün adını ifade eder. Bu tablo, yazarların çalıştığı akademik bölümleri belirtir.
+__5-Bölüm (bolum_id, bolum_adi, universite_id):__ Üniversiteye bağlı olan bölümleri tanımlar. bolum_id her bölümü benzersiz olarak tanımlar ve universite_id ile hangi üniversiteye bağlı olduğunu gösterir. bolum_adi, bölümün adını ifade eder. Bu tablo, yazarların çalıştığı akademik bölümleri belirtir.
 
-6-Koleksiyon (koleksiyon_id, koleksiyon_adi, aciklama): Yayınların dahil olabileceği koleksiyonları tanımlar. koleksiyon_id benzersiz bir koleksiyon kimliği sağlar, koleksiyon_adi koleksiyonun adını belirtir, ve aciklama alanı koleksiyon hakkında bilgi verir. Koleksiyonlar, belirli bir tema ya da konudaki yayınların gruplandığı bölümleri temsil eder.
+__6-Koleksiyon (koleksiyon_id, koleksiyon_adi, aciklama):__ Yayınların dahil olabileceği koleksiyonları tanımlar. koleksiyon_id benzersiz bir koleksiyon kimliği sağlar, koleksiyon_adi koleksiyonun adını belirtir, ve aciklama alanı koleksiyon hakkında bilgi verir. Koleksiyonlar, belirli bir tema ya da konudaki yayınların gruplandığı bölümleri temsil eder.
 
-7-Kullanıcı (kullanici_id, kullanici_adi, sifre, ad, soyad, rol): Sistemi kullanan kullanıcıların bilgilerini içerir. kullanici_id her kullanıcıyı benzersiz olarak tanımlar. rol alanı, kullanıcının sistemdeki yetkilerini belirler. Kullanıcı tablosu, yöneticiler, yazarlar veya okuyucular gibi farklı rollerdeki kişileri içerir.
+__7-Kullanıcı (kullanici_id, kullanici_adi, sifre, ad, soyad, rol):__ Sistemi kullanan kullanıcıların bilgilerini içerir. kullanici_id her kullanıcıyı benzersiz olarak tanımlar. rol alanı, kullanıcının sistemdeki yetkilerini belirler. Kullanıcı tablosu, yöneticiler, yazarlar veya okuyucular gibi farklı rollerdeki kişileri içerir.
 
-8-Yazar (yazar_id, ad, soyad, afiliasyon, email, universite_id, bolum_id): Bu tablo, yazarlara ait kişisel ve profesyonel bilgileri içerir. yazar_id, her yazarı benzersiz bir şekilde tanımlar. universite_id ve bolum_id yazarın bağlı olduğu üniversite ve bölümü belirtir. Bu bilgiler, yazarların kimliklerini ve akademik bağlantılarını tanımlamak için kullanılır.
+__8-Yazar (yazar_id, ad, soyad, afiliasyon, email, universite_id, bolum_id):__ Bu tablo, yazarlara ait kişisel ve profesyonel bilgileri içerir. yazar_id, her yazarı benzersiz bir şekilde tanımlar. universite_id ve bolum_id yazarın bağlı olduğu üniversite ve bölümü belirtir. Bu bilgiler, yazarların kimliklerini ve akademik bağlantılarını tanımlamak için kullanılır.
 
-9-Yayın (yayin_id, baslik, yayin_tarihi, yayin_yeri, DOI, ozet, anahtar_kelimeler, yayin_turu_id, yayinci_id, konferans_id, koleksiyon_id, dil): Yayın tablosu, yayınların temel bilgilerini içerir. yayin_id her yayını benzersiz olarak tanımlar. baslik, ozet, ve anahtar_kelimeler alanları yayın hakkında bilgi verir. yayin_turu_id, yayinci_id, konferans_id ve koleksiyon_id diğer tablolarla ilişkilerini belirtir.
+__9-Yayın (yayin_id, baslik, yayin_tarihi, yayin_yeri, DOI, ozet, anahtar_kelimeler, yayin_turu_id, yayinci_id, konferans_id, koleksiyon_id, dil):__ Yayın tablosu, yayınların temel bilgilerini içerir. yayin_id her yayını benzersiz olarak tanımlar. baslik, ozet, ve anahtar_kelimeler alanları yayın hakkında bilgi verir. yayin_turu_id, yayinci_id, konferans_id ve koleksiyon_id diğer tablolarla ilişkilerini belirtir.
 
-10-Kategori (kategori_id, kategori_adi): Yayınların dahil olduğu kategorileri tanımlar. kategori_id her kategoriyi benzersiz olarak tanımlar ve kategori_adi kategorinin adını belirtir. Kategoriler, yayınları sınıflandırmak için kullanılır.
+__10-Kategori (kategori_id, kategori_adi):__ Yayınların dahil olduğu kategorileri tanımlar. kategori_id her kategoriyi benzersiz olarak tanımlar ve kategori_adi kategorinin adını belirtir. Kategoriler, yayınları sınıflandırmak için kullanılır.
 
-11-Alan (alan_id, alan_adi): Yazarların uzmanlık alanlarını tanımlar. alan_id benzersiz bir tanımlayıcıdır ve alan_adi alanın adını içerir. Alanlar, yazarların akademik veya profesyonel uzmanlıklarını belirlemek için kullanılır.
+__11-Alan (alan_id, alan_adi):__ Yazarların uzmanlık alanlarını tanımlar. alan_id benzersiz bir tanımlayıcıdır ve alan_adi alanın adını içerir. Alanlar, yazarların akademik veya profesyonel uzmanlıklarını belirlemek için kullanılır.
 
-12-Unvan (unvan_id, unvan_adi): Yazarların akademik veya profesyonel unvanlarını tanımlar. unvan_id her unvanı benzersiz bir şekilde tanımlar ve unvan_adi unvanın adını belirtir. Unvanlar, yazarların statülerini belirtmek için kullanılır.
+__12-Unvan (unvan_id, unvan_adi):__ Yazarların akademik veya profesyonel unvanlarını tanımlar. unvan_id her unvanı benzersiz bir şekilde tanımlar ve unvan_adi unvanın adını belirtir. Unvanlar, yazarların statülerini belirtmek için kullanılır.
 
-13-Ödül (odul_id, odul_adi): Yazarların kazandığı ödülleri içerir. odul_id ödül için benzersiz bir tanımlayıcıdır, odul_adi ödülün adını içerir. Bu tablo, yazarların akademik başarılarını gösterir.
+__13-Ödül (odul_id, odul_adi):__ Yazarların kazandığı ödülleri içerir. odul_id ödül için benzersiz bir tanımlayıcıdır, odul_adi ödülün adını içerir. Bu tablo, yazarların akademik başarılarını gösterir.
 
-14-Proje (proje_id, proje_adi, aciklama, baslangic_tarihi, bitis_tarihi): Araştırma projelerini tanımlar. proje_id her projeyi benzersiz olarak tanımlar. proje_adi, aciklama, baslangic_tarihi ve bitis_tarihi alanları projenin adı, açıklaması, başlangıç ve bitiş tarihlerini içerir. Projeler, yayınların ortaya çıkmasına katkıda bulunan çalışmalar olabilir.
+__14-Proje (proje_id, proje_adi, aciklama, baslangic_tarihi, bitis_tarihi):__ Araştırma projelerini tanımlar. proje_id her projeyi benzersiz olarak tanımlar. proje_adi, aciklama, baslangic_tarihi ve bitis_tarihi alanları projenin adı, açıklaması, başlangıç ve bitiş tarihlerini içerir. Projeler, yayınların ortaya çıkmasına katkıda bulunan çalışmalar olabilir.
 
-15-Finans_Kaynağı (finans_kaynağı_id, kaynak_adi, kaynak_turu): Projeler için sağlanan finansman kaynaklarını tanımlar. finans_kaynağı_id benzersiz bir tanımlayıcıdır. kaynak_adi ve kaynak_turu finansman kaynağının adı ve türünü belirtir. Finans kaynakları, projelerin desteklenmesinde önemlidir.
+__15-Finans_Kaynağı (finans_kaynağı_id, kaynak_adi, kaynak_turu):__ Projeler için sağlanan finansman kaynaklarını tanımlar. finans_kaynağı_id benzersiz bir tanımlayıcıdır. kaynak_adi ve kaynak_turu finansman kaynağının adı ve türünü belirtir. Finans kaynakları, projelerin desteklenmesinde önemlidir.
 
-16-Atıflar (atifa_id, kaynak_yayin_id, hedef_yayin_id, atif_sayfasi, atif_context): Bu tablo, bir yayına yapılan atıfları saklar. atifa_id, her atıf için benzersiz bir kimliktir. kaynak_yayin_id, atıfın yapıldığı yayının tanımlayıcısını belirtirken, hedef_yayin_id atıf yapılan yayının tanımlayıcısını gösterir. atif_sayfasi, atıfın yapıldığı sayfanın numarasını içerir ve pozitif bir tam sayı olmalıdır. atif_context, atıfla ilgili açıklayıcı bilgileri veya notları saklar. Bu tablo, yayınlar arasındaki ilişkileri göstermek ve atıf detaylarını yönetmek için kullanılır.
+__16-Atıflar (atifa_id, kaynak_yayin_id, hedef_yayin_id, atif_sayfasi, atif_context):__ Bu tablo, bir yayına yapılan atıfları saklar. atifa_id, her atıf için benzersiz bir kimliktir. kaynak_yayin_id, atıfın yapıldığı yayının tanımlayıcısını belirtirken, hedef_yayin_id atıf yapılan yayının tanımlayıcısını gösterir. atif_sayfasi, atıfın yapıldığı sayfanın numarasını içerir ve pozitif bir tam sayı olmalıdır. atif_context, atıfla ilgili açıklayıcı bilgileri veya notları saklar. Bu tablo, yayınlar arasındaki ilişkileri göstermek ve atıf detaylarını yönetmek için kullanılır.
 
-## Ara Tablolar ve İlişkiler
+##  Tablolar ve İlişkiler
+
+## 1-N İlişkileri
 | Ana Tablo 1       | Ana Tablo 2     | İlişki Türü                  |
 |-------------------|-----------------|------------------------------|
 | Yayın\_Türü       | Yayın           | Yayın\_Türü (1), Yayın (N)   |
@@ -51,6 +53,8 @@ Temel Tablolar ve Açıklamaları
 | Üniversite        | Bölüm           | Üniversite (1), Bölüm (N)    |
 | Üniversite        | Yazar           | Üniversite (1), Yazar (N)    |
 | Bölüm             | Yazar           | Bölüm (1), Yazar (N)         |
+
+## N-N İlişkileri
 
 | Ana Tablo 1 | Ara Tablo             | Ana Tablo 2       | Ara Tablo ile İlişki Türü        |
 |-------------|------------------------|-------------------|----------------------------------|
