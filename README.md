@@ -1,4 +1,4 @@
-# Akademik Yayın Yönetim Sistemi
+# Akademik Yayın ve Atıf Takip Sistemi
 
 Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin tutulmasını sağlayan bir sistem geliştirmeyi amaçlamaktadır. Sistem; akademik yayınlar, yazarlar, yayınevleri, üniversiteler, konferanslar, koleksiyonlar ve ödüller gibi bileşenleri ve aralarındaki ilişkileri yönetir. Ayrıca kullanıcı rolleri, erişim hakları, projeler ve finans kaynakları gibi yönetimsel özellikler de bulunmaktadır. Bu sistem, yayımlanan akademik eserlerin takibi, atıflar ve akademik ödüllerin yönetimi gibi işlevsellikler sunar.
 
@@ -6,9 +6,6 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 ![Veri Tabanı Şeması](https://github.com/user-attachments/assets/d0c55f10-023c-4714-8fcd-3b88bcd5ccd0)
 
-## Veritabanı Tablo İlişkileri
-
-# Akademik Çalışmalar ve Proje Yönetim Sistemi
 
 ## 1. Sistem Amacı
 Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağlamak, araştırmacıların ve akademisyenlerin katkılarını takip etmek ve akademik içeriklerin (yayınlar, projeler, konferanslar, vb.) bir arada sunulmasını kolaylaştırmaktır.
@@ -60,9 +57,8 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 ##  Tablolar ve İlişkiler
 
-# Veritabanı İlişkileri
 
-| İlişki                     | Varlık 1         | Varlık 2           | Kardinalite |
+| İlişki                     | Varlık 1         | Varlık 2           | İlişkiler   |
 |---------------------------|------------------|---------------------|-------------|
 | Sahip Olur                | Universiteler    | Bolumler            | 1:N         |
 | Barındırır                | Bolumler         | Yazarlar            | 1:N         |
