@@ -7,67 +7,191 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 ## Veritabanı Tablo İlişkileri
 
-Temel Tablolar ve Açıklamaları
+# Akademik Çalışmalar ve Proje Yönetim Sistemi
 
-__1-Yayın_Türü (yayin_turu_id, tur_adi):__ Bu tablo, akademik çalışmaların türlerini belirtir. Yayın türü, makale, kitap, rapor veya konferans bildirisi gibi çeşitli formatları içerebilir. yayin_turu_id her tür için benzersiz bir tanımlayıcıdır. tur_adi ise yayın türünün adını içerir, böylece hangi türde yayının sistemde yer aldığı kolayca anlaşılabilir.
+## 1. Sistem Amacı
+Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağlamak, araştırmacıların ve akademisyenlerin katkılarını takip etmek ve akademik içeriklerin (yayınlar, projeler, konferanslar, vb.) bir arada sunulmasını kolaylaştırmaktır.
 
-__2-Yayıncı (yayinci_id, yayinci_adi, adres, telefon, enlem, boylam):__ Yayıncı tablosu, yayınların yayımlandığı yayınevi veya kurumların bilgilerini içerir. Her yayıncı, yayinci_id ile benzersiz bir şekilde tanımlanır. yayinci_adi, adres, telefon, enlem ve boylam alanları ise yayıncı kurumun iletişim ve konum bilgilerini içerir. Yayıncı, yayınların basıldığı veya dijital ortamda yayınlandığı kurumları temsil eder.
+## 2. Temel Kullanıcılar
+- **Yazarlar (Araştırmacılar)**: Akademik içerik üreticileri, araştırmacılar ve akademisyenler.
+- **Kullanıcılar**: Sistemi kullanan genel kullanıcılar (akademik içerikleri sorgulayan, yorum yapan, vb.).
+- **Yöneticiler**: Sistemi yöneten kişiler, verileri ekleyen ve yöneten kişiler.
 
-__3-Konferans (konferans_id, konferans_adi, duzenleyen_kurum, duzenlenme_tarihi, duzenlenme_yeri):__ Bu tablo, düzenlenen konferansların bilgilerini saklar. konferans_adi, konferansın adını, duzenleyen_kurum ise konferansı düzenleyen kuruluşu ifade eder. duzenlenme_tarihi ve duzenlenme_yeri alanları ise konferansın yapıldığı tarih ve yeri belirtir. Konferanslar, genellikle akademik topluluğun bir araya geldiği ve bilgilerin paylaşıldığı etkinliklerdir.
+## 3. Temel İşlevsel Gereksinimler
 
-__4-Üniversite (universite_id, universite_adi, adres, ulke, enlem, boylam):__ Bu tabloda, üniversitelerin bilgileri saklanır. universite_id her üniversiteyi benzersiz olarak tanımlar. universite_adi, adres, ulke, enlem ve boylam alanları üniversitenin adı, adresi, bulunduğu ülke ve coğrafi konumunu içerir. Üniversite bilgileri, yazarların bağlı olduğu kurumları tanımlamak için kullanılır.
+### 3.1. Üniversite Yönetimi
+- **Üniversite Bilgisi Ekleme**: Yeni üniversiteler sisteme eklenebilir.
+- **Bölüm Ekleme**: Üniversiteler altındaki bölümler eklenebilir ve her bölümün hangi üniversiteye ait olduğu belirlenebilir.
+- **Üniversite/Bölüm Silme**: Yönetici, üniversiteleri ve bölümleri silebilir.
 
-__5-Bölüm (bolum_id, bolum_adi, universite_id):__ Üniversiteye bağlı olan bölümleri tanımlar. bolum_id her bölümü benzersiz olarak tanımlar ve universite_id ile hangi üniversiteye bağlı olduğunu gösterir. bolum_adi, bölümün adını ifade eder. Bu tablo, yazarların çalıştığı akademik bölümleri belirtir.
+### 3.2. Araştırma Alanları ve Konular
+- **Araştırma Alanı Ekleme**: Alanlar tablosu aracılığıyla yeni araştırma alanları eklenebilir.
+- **Anahtar Kelimeler Ekleme**: Yayınlarda arama kolaylığı sağlamak için anahtar kelimeler eklenebilir.
 
-__6-Koleksiyon (koleksiyon_id, koleksiyon_adi, aciklama):__ Yayınların dahil olabileceği koleksiyonları tanımlar. koleksiyon_id benzersiz bir koleksiyon kimliği sağlar, koleksiyon_adi koleksiyonun adını belirtir, ve aciklama alanı koleksiyon hakkında bilgi verir. Koleksiyonlar, belirli bir tema ya da konudaki yayınların gruplandığı bölümleri temsil eder.
+### 3.3. Yayın Yönetimi
+- **Yayın Ekleme**: Yazarlar, yayınlarının başlıklarını, özetlerini, tarihleri gibi bilgileri girebilir. Yayınlar belirli bir konferans veya koleksiyonla ilişkilendirilebilir.
+- **Yayınlara Yorum Yapma**: Kullanıcılar, yayınlar hakkında yorum yapabilir.
+- **Yayınları Etiketleme**: Yayınlar, alanlar, anahtar kelimeler ve ödüllerle ilişkilendirilebilir.
 
-__7-Kullanıcı (kullanici_id, kullanici_adi, sifre, ad, soyad, rol):__ Sistemi kullanan kullanıcıların bilgilerini içerir. kullanici_id her kullanıcıyı benzersiz olarak tanımlar. rol alanı, kullanıcının sistemdeki yetkilerini belirler. Kullanıcı tablosu, yöneticiler, yazarlar veya okuyucular gibi farklı rollerdeki kişileri içerir.
+### 3.4. Konferanslar ve Projeler
+- **Konferans Ekleme**: Konferanslar, tarihleri ve yerleri ile sisteme eklenebilir.
+- **Proje Ekleme**: Araştırma projeleri, projelere dair açıklamalar, ödüller ve finansal kaynaklar eklenebilir.
 
-__8-Yazar (yazar_id, ad, soyad, afiliasyon, email, universite_id, bolum_id):__ Bu tablo, yazarlara ait kişisel ve profesyonel bilgileri içerir. yazar_id, her yazarı benzersiz bir şekilde tanımlar. universite_id ve bolum_id yazarın bağlı olduğu üniversite ve bölümü belirtir. Bu bilgiler, yazarların kimliklerini ve akademik bağlantılarını tanımlamak için kullanılır.
+### 3.5. Ödüller ve Finansal Kaynaklar
+- **Odüller Ekleme**: Akademik başarılar ödüllerle ilişkilendirilebilir.
+- **Finansal Kaynaklar Ekleme**: Araştırma projeleri için finansal kaynaklar eklenebilir.
 
-__9-Yayın (yayin_id, baslik, yayin_tarihi, yayin_yeri, DOI, ozet, anahtar_kelimeler, yayin_turu_id, yayinci_id, konferans_id, koleksiyon_id, dil):__ Yayın tablosu, yayınların temel bilgilerini içerir. yayin_id her yayını benzersiz olarak tanımlar. baslik, ozet, ve anahtar_kelimeler alanları yayın hakkında bilgi verir. yayin_turu_id, yayinci_id, konferans_id ve koleksiyon_id diğer tablolarla ilişkilerini belirtir.
+## 4. Sistem Gereksinimleri
 
-__10-Kategori (kategori_id, kategori_adi):__ Yayınların dahil olduğu kategorileri tanımlar. kategori_id her kategoriyi benzersiz olarak tanımlar ve kategori_adi kategorinin adını belirtir. Kategoriler, yayınları sınıflandırmak için kullanılır.
+### 4.1. Veritabanı Gereksinimleri
+- Veritabanı, üniversiteler, bölümler, yayınlar, projeler, ödüller, anahtar kelimeler gibi birçok tabloyu içermelidir.
+- Veritabanında dış anahtar ilişkileri (FK) doğru şekilde yapılandırılmalıdır.
+- Veri bütünlüğü sağlanmalı, veriler tutarlı ve doğru olmalıdır.
 
-__11-Alan (alan_id, alan_adi):__ Yazarların uzmanlık alanlarını tanımlar. alan_id benzersiz bir tanımlayıcıdır ve alan_adi alanın adını içerir. Alanlar, yazarların akademik veya profesyonel uzmanlıklarını belirlemek için kullanılır.
+### 4.2. Kullanıcı Arayüzü Gereksinimleri
+- **Yazar Arayüzü**: Yazarlar, yayınlarını ve projelerini ekleyip düzenleyebilecektir.
+- **Yorum ve Oylama Sistemi**: Kullanıcılar, yayınlar ve projeler hakkında yorum yapıp değerlendirme gerçekleştirebilir.
+- **Arama ve Filtreleme**: Kullanıcılar, yayınlar, konferanslar ve projeler arasında anahtar kelimeler, tarih, yazar vb. kriterlere göre arama yapabilir.
 
-__12-Unvan (unvan_id, unvan_adi):__ Yazarların akademik veya profesyonel unvanlarını tanımlar. unvan_id her unvanı benzersiz bir şekilde tanımlar ve unvan_adi unvanın adını belirtir. Unvanlar, yazarların statülerini belirtmek için kullanılır.
-
-__13-Ödül (odul_id, odul_adi):__ Yazarların kazandığı ödülleri içerir. odul_id ödül için benzersiz bir tanımlayıcıdır, odul_adi ödülün adını içerir. Bu tablo, yazarların akademik başarılarını gösterir.
-
-__14-Proje (proje_id, proje_adi, aciklama, baslangic_tarihi, bitis_tarihi):__ Araştırma projelerini tanımlar. proje_id her projeyi benzersiz olarak tanımlar. proje_adi, aciklama, baslangic_tarihi ve bitis_tarihi alanları projenin adı, açıklaması, başlangıç ve bitiş tarihlerini içerir. Projeler, yayınların ortaya çıkmasına katkıda bulunan çalışmalar olabilir.
-
-__15-Finans_Kaynağı (finans_kaynağı_id, kaynak_adi, kaynak_turu):__ Projeler için sağlanan finansman kaynaklarını tanımlar. finans_kaynağı_id benzersiz bir tanımlayıcıdır. kaynak_adi ve kaynak_turu finansman kaynağının adı ve türünü belirtir. Finans kaynakları, projelerin desteklenmesinde önemlidir.
-
-__16-Atıflar (atifa_id, kaynak_yayin_id, hedef_yayin_id, atif_sayfasi, atif_context):__ Bu tablo, bir yayına yapılan atıfları saklar. atifa_id, her atıf için benzersiz bir kimliktir. kaynak_yayin_id, atıfın yapıldığı yayının tanımlayıcısını belirtirken, hedef_yayin_id atıf yapılan yayının tanımlayıcısını gösterir. atif_sayfasi, atıfın yapıldığı sayfanın numarasını içerir ve pozitif bir tam sayı olmalıdır. atif_context, atıfla ilgili açıklayıcı bilgileri veya notları saklar. Bu tablo, yayınlar arasındaki ilişkileri göstermek ve atıf detaylarını yönetmek için kullanılır.
+### 4.3. Güvenlik Gereksinimleri
+- **Kullanıcı Girişi ve Kimlik Doğrulama**: Kullanıcılar için güvenli giriş ve kimlik doğrulama sistemleri olmalıdır.
+- **Rol Tabanlı Erişim Kontrolü**: Yöneticiler, kullanıcılar ve yazarlar için farklı erişim seviyeleri belirlenmelidir.
 
 ##  Tablolar ve İlişkiler
 
-## 1-N İlişkileri
-| Ana Tablo 1       | Ana Tablo 2     | İlişki Türü                  |
-|-------------------|-----------------|------------------------------|
-| Yayın\_Türü       | Yayın           | Yayın\_Türü (1), Yayın (N)   |
-| Yayıncı           | Yayın           | Yayıncı (1), Yayın (N)       |
-| Konferans         | Yayın           | Konferans (1), Yayın (N)     |
-| Koleksiyon        | Yayın           | Koleksiyon (1), Yayın (N)    |
-| Üniversite        | Bölüm           | Üniversite (1), Bölüm (N)    |
-| Üniversite        | Yazar           | Üniversite (1), Yazar (N)    |
-| Bölüm             | Yazar           | Bölüm (1), Yazar (N)         |
+# Veritabanı İlişkileri
 
-## N-N İlişkileri
+| İlişki                     | Varlık 1         | Varlık 2           | Kardinalite |
+|---------------------------|------------------|---------------------|-------------|
+| Sahip Olur                | Universiteler    | Bolumler            | 1:N         |
+| Barındırır                | Bolumler         | Yazarlar            | 1:N         |
+| Olabilir                  | Yazarlar         | Kullanicilar        | 1:N         |
+| Katılır                   | Yazarlar         | Projeler            | N:N         |
+| Yazar                     | Yazarlar         | Yayinlar            | N:N         |
+| Yazar                     | Kullanicilar     | Yorumlar            | 1:N         |
+| Finansmanı                | Projeler         | FinansKaynaklari    | 1:N         |
+| Alanında                  | Projeler         | Alanlar             | N:N         |
+| Yürütülür                 | Projeler         | Bolumler            | N:N         |
+| Kazanır                   | Projeler         | Oduller             | N:N         |
+| İçinde                    | Yayinlar         | Koleksiyonlar       | 1:N         |
+| Sunulur                   | Yayinlar         | Konferanslar        | N:N         |
+| Alanında                  | Yayinlar         | Alanlar             | N:N         |
+| İçerir                    | Yayinlar         | AnahtarKelimeler    | N:N         |
+| Kazanır                   | Yayinlar         | Oduller             | 1:N         |
+| Alır                      | Yayinlar         | Yorumlar            | 1:N         |
 
-| Ana Tablo 1 | Ara Tablo             | Ana Tablo 2       | Ara Tablo ile İlişki Türü        |
-|-------------|------------------------|-------------------|----------------------------------|
-| Yayın       | Yayın\_Yazar          | Yazar            | Yayın (1-N), Yazar (1-N)         |
-| Yayın       | Yayın\_Kategori       | Kategori         | Yayın (1-N), Kategori (1-N)      |
-| Yazar       | Yazar\_Alan           | Alan             | Yazar (1-N), Alan (1-N)          |
-| Yazar       | Yazar\_Unvan          | Unvan            | Yazar (1-N), Unvan (1-N)         |
-| Yazar       | Yazar\_Ödül           | Ödül             | Yazar (1-N), Ödül (1-N)          |
-| Yazar       | Yazar\_Yayıncı        | Yayıncı          | Yazar (1-N), Yayıncı (1-N)       |
-| Proje       | Proje\_Yayın          | Yayın            | Proje (1-N), Yayın (1-N)         |
-| Proje       | Proje\_FinansKaynağı  | Finans\_Kaynağı  | Proje (1-N), Finans\_Kaynağı (1-N)|
-| Kullanıcı   | Kullanıcı\_Proje      | Proje            | Kullanıcı (1-N), Proje (1-N)     |
 
+
+
+## Universiteler
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| universite_id   | INT           | IDENTITY(1,1)        |
+| universite_adi  | VARCHAR(255)  | NOT NULL             |
+| adres           | TEXT          | NULL                 |
+
+## Bolumler
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| bolum_id        | INT           | IDENTITY(1,1)        |
+| bolum_adi       | VARCHAR(255)  | NOT NULL             |
+| universite_id   | INT           | FK (Universiteler)   |
+
+## Alanlar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| alan_id         | INT           | IDENTITY(1,1)        |
+| alan_adi        | VARCHAR(255)  | NOT NULL             |
+
+## Oduller
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| odul_id         | INT           | IDENTITY(1,1)        |
+| odul_adi        | VARCHAR(255)  | NOT NULL             |
+| odul_aciklama   | TEXT          | NULL                 |
+
+## Konferanslar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| konferans_id    | INT           | IDENTITY(1,1)        |
+| konferans_adi   | VARCHAR(255)  | NOT NULL             |
+| konferans_tarihi| DATE          | NULL                 |
+| konferans_yeri  | VARCHAR(255)  | NULL                 |
+
+## Koleksiyonlar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| koleksiyon_id   | INT           | IDENTITY(1,1)        |
+| koleksiyon_adi  | VARCHAR(255)  | NOT NULL             |
+| aciklama        | TEXT          | NULL                 |
+
+## FinansKaynaklari
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| kaynak_id       | INT           | IDENTITY(1,1)        |
+| kaynak_adi      | VARCHAR(255)  | NOT NULL             |
+| kaynak_turu     | VARCHAR(255)  | NULL                 |
+
+## AnahtarKelimeler
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| anahtar_kelime_id | INT         | IDENTITY(1,1)        |
+| anahtar_kelime   | VARCHAR(255)  | NOT NULL             |
+
+## Yazarlar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| yazar_id        | INT           | IDENTITY(1,1)        |
+| ad              | VARCHAR(255)  | NOT NULL             |
+| soyad           | VARCHAR(255)  | NOT NULL             |
+| email           | VARCHAR(255)  | UNIQUE               |
+| unvan           | VARCHAR(255)  | NULL                 |
+| bolum_id        | INT           | FK (Bolumler)        |
+
+## Yayinlar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| yayin_id        | INT           | IDENTITY(1,1)        |
+| baslik          | VARCHAR(255)  | NOT NULL             |
+| ozet            | TEXT          | NULL                 |
+| yayin_tarihi    | DATE          | NULL                 |
+| doi             | VARCHAR(255)  | UNIQUE               |
+| koleksiyon_id   | INT           | FK (Koleksiyonlar)   |
+| konferans_id    | INT           | FK (Konferanslar)    |
+| alan_id         | INT           | FK (Alanlar)         |
+| anahtar_kelime_id | INT         | FK (AnahtarKelimeler)|
+| yazar_id        | INT           | FK (Yazarlar)        |
+| odul_id         | INT           | FK (Oduller)         |
+
+## Projeler
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| proje_id        | INT           | IDENTITY(1,1)        |
+| proje_adi       | VARCHAR(255)  | NOT NULL             |
+| proje_aciklama  | TEXT          | NULL                 |
+| kaynak_id       | INT           | FK (FinansKaynaklari)|
+| alan_id         | INT           | FK (Alanlar)         |
+| bolum_id        | INT           | FK (Bolumler)        |
+| yazar_id        | INT           | FK (Yazarlar)        |
+| odul_id         | INT           | FK (Oduller)         |
+
+## Kullanicilar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| kullanici_id    | INT           | IDENTITY(1,1)        |
+| kullanici_adi   | VARCHAR(255)  | NOT NULL, UNIQUE     |
+| sifre           | VARCHAR(255)  | NOT NULL             |
+| rol             | VARCHAR(50)   | NULL                 |
+| yazar_id        | INT           | FK (Yazarlar)        |
+
+## Yorumlar
+| Kolon           | Tür           | Özellikler           |
+|-----------------|---------------|----------------------|
+| yorum_id        | INT           | IDENTITY(1,1)        |
+| yayin_id        | INT           | FK (Yayinlar)        |
+| kullanici_id    | INT           | FK (Kullanicilar)    |
+| yorum_metni     | TEXT          | NOT NULL             |
+| yorum_tarihi    | DATETIME      | DEFAULT CURRENT_TIMESTAMP |
 
 
 ## Kurulum
