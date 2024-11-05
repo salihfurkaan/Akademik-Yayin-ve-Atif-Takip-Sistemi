@@ -78,34 +78,34 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 
 
-## Universiteler
+### Universiteler
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | universite_id   | INT           | IDENTITY(1,1)        |
 | universite_adi  | VARCHAR(255)  | NOT NULL             |
 | adres           | TEXT          | NULL                 |
 
-## Bolumler
+### Bolumler
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | bolum_id        | INT           | IDENTITY(1,1)        |
 | bolum_adi       | VARCHAR(255)  | NOT NULL             |
 | universite_id   | INT           | FK (Universiteler)   |
 
-## Alanlar
+### Alanlar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | alan_id         | INT           | IDENTITY(1,1)        |
 | alan_adi        | VARCHAR(255)  | NOT NULL             |
 
-## Oduller
+### Oduller
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | odul_id         | INT           | IDENTITY(1,1)        |
 | odul_adi        | VARCHAR(255)  | NOT NULL             |
 | odul_aciklama   | TEXT          | NULL                 |
 
-## Konferanslar
+### Konferanslar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | konferans_id    | INT           | IDENTITY(1,1)        |
@@ -113,27 +113,27 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 | konferans_tarihi| DATE          | NULL                 |
 | konferans_yeri  | VARCHAR(255)  | NULL                 |
 
-## Koleksiyonlar
+### Koleksiyonlar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | koleksiyon_id   | INT           | IDENTITY(1,1)        |
 | koleksiyon_adi  | VARCHAR(255)  | NOT NULL             |
 | aciklama        | TEXT          | NULL                 |
 
-## FinansKaynaklari
+### FinansKaynaklari
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | kaynak_id       | INT           | IDENTITY(1,1)        |
 | kaynak_adi      | VARCHAR(255)  | NOT NULL             |
 | kaynak_turu     | VARCHAR(255)  | NULL                 |
 
-## AnahtarKelimeler
+### AnahtarKelimeler
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | anahtar_kelime_id | INT         | IDENTITY(1,1)        |
 | anahtar_kelime   | VARCHAR(255)  | NOT NULL             |
 
-## Yazarlar
+### Yazarlar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | yazar_id        | INT           | IDENTITY(1,1)        |
@@ -143,7 +143,7 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 | unvan           | VARCHAR(255)  | NULL                 |
 | bolum_id        | INT           | FK (Bolumler)        |
 
-## Yayinlar
+### Yayinlar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | yayin_id        | INT           | IDENTITY(1,1)        |
@@ -158,7 +158,7 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 | yazar_id        | INT           | FK (Yazarlar)        |
 | odul_id         | INT           | FK (Oduller)         |
 
-## Projeler
+### Projeler
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | proje_id        | INT           | IDENTITY(1,1)        |
@@ -170,7 +170,7 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 | yazar_id        | INT           | FK (Yazarlar)        |
 | odul_id         | INT           | FK (Oduller)         |
 
-## Kullanicilar
+### Kullanicilar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | kullanici_id    | INT           | IDENTITY(1,1)        |
@@ -179,7 +179,7 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 | rol             | VARCHAR(50)   | NULL                 |
 | yazar_id        | INT           | FK (Yazarlar)        |
 
-## Yorumlar
+### Yorumlar
 | Kolon           | Tür           | Özellikler           |
 |-----------------|---------------|----------------------|
 | yorum_id        | INT           | IDENTITY(1,1)        |
