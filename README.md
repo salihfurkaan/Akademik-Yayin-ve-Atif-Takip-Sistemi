@@ -55,6 +55,7 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 ##  Tablolar ve İlişkiler
 
+## İlişkiler
 
 | İlişki                     | Varlık 1         | Varlık 2           | İlişkiler   |
 |---------------------------|------------------|---------------------|-------------|
@@ -76,7 +77,7 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 | Alır                      | Yayinlar         | Yorumlar            | 1:N         |
 
 
-
+## Tablolar
 
 ### Universiteler
 | Kolon           | Tür           | Özellikler           |
