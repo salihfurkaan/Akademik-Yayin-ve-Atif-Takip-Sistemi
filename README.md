@@ -1,6 +1,7 @@
 # Akademik Yayın ve Atıf Takip Sistemi
 
-Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin tutulmasını sağlayan bir sistem geliştirmeyi amaçlamaktadır. Sistem; akademik yayınlar, yazarlar, yayınevleri, �[...]
+Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağlamak, araştırmacıların ve akademisyenlerin katkılarını takip etmek ve akademik içeriklerin (yayınlar, projeler, konferanslar, vb.) bir arada sunulmasını kolaylaştırmaktır.
+
 
 ## Veri Tabanı Şeması
 
