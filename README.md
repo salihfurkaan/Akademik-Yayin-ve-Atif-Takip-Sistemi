@@ -79,66 +79,79 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 ## Tablolar
 
-| Tablo Adı          | Kolon                     | Tür           | Özellikler           |
-|---------------------|--------------------------|---------------|----------------------|
-| Universiteler       | universite_id            | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | universite_adi           | VARCHAR(255)  | NOT NULL             |
-|                     | adres                    | TEXT          | NULL                 |
-| Bolumler            | bolum_id                 | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | bolum_adi                | VARCHAR(255)  | NOT NULL             |
-|                     | universite_id            | INT           | FOREIGN KEY          |
-| Alanlar             | alan_id                  | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | alan_adi                 | VARCHAR(255)  | NOT NULL             |
-| Oduller             | odul_id                  | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | odul_adi                 | VARCHAR(255)  | NOT NULL             |
-|                     | odul_aciklama            | TEXT          | NULL                 |
-| Konferanslar        | konferans_id             | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | konferans_adi            | VARCHAR(255)  | NOT NULL             |
-|                     | konferans_tarihi         | DATE          | NULL                 |
-|                     | konferans_yeri           | VARCHAR(255)  | NULL                 |
-| Koleksiyonlar       | koleksiyon_id            | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | koleksiyon_adi           | VARCHAR(255)  | NOT NULL             |
-|                     | aciklama                 | TEXT          | NULL                 |
-| FinansKaynaklari    | kaynak_id                | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | kaynak_adi               | VARCHAR(255)  | NOT NULL             |
-|                     | kaynak_turu              | VARCHAR(255)  | NULL                 |
-| AnahtarKelimeler    | anahtar_kelime_id        | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | anahtar_kelime           | VARCHAR(255)  | NOT NULL             |
-| Yazarlar            | yazar_id                 | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | ad                       | VARCHAR(255)  | NOT NULL             |
-|                     | soyad                    | VARCHAR(255)  | NOT NULL             |
-|                     | email                    | VARCHAR(255)  | UNIQUE               |
-|                     | unvan                    | VARCHAR(255)  | NULL                 |
-|                     | bolum_id                 | INT           | FOREIGN KEY          |
-| Yayinlar            | yayin_id                 | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | baslik                   | VARCHAR(255)  | NOT NULL             |
-|                     | ozet                     | TEXT          | NULL                 |
-|                     | yayin_tarihi             | DATE          | NULL                 |
-|                     | doi                      | VARCHAR(255)  | UNIQUE               |
-|                     | koleksiyon_id            | INT           | FOREIGN KEY          |
-|                     | konferans_id             | INT           | FOREIGN KEY          |
-|                     | alan_id                  | INT           | FOREIGN KEY          |
-|                     | anahtar_kelime_id        | INT           | FOREIGN KEY          |
-|                     | yazar_id                 | INT           | FOREIGN KEY          |
-|                     | odul_id                  | INT           | FOREIGN KEY          |
-| Projeler            | proje_id                 | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | proje_adi                | VARCHAR(255)  | NOT NULL             |
-|                     | proje_aciklama           | TEXT          | NULL                 |
-|                     | kaynak_id                | INT           | FOREIGN KEY          |
-|                     | alan_id                  | INT           | FOREIGN KEY          |
-|                     | bolum_id                 | INT           | FOREIGN KEY          |
-|                     | yazar_id                 | INT           | FOREIGN KEY          |
-|                     | odul_id                  | INT           | FOREIGN KEY          |
-| Kullanicilar        | kullanici_id             | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | kullanici_adi            | VARCHAR(255)  | NOT NULL, UNIQUE     |
-|                     | sifre                    | VARCHAR(255)  | NOT NULL             |
-|                     | rol                      | VARCHAR(50)   | NULL                 |
-|                     | yazar_id                 | INT           | FOREIGN KEY          |
-| Yorumlar            | yorum_id                 | INT           | PRIMARY KEY, IDENTITY(1,1) |
-|                     | yayin_id                 | INT           | FOREIGN KEY          |
-|                     | kullanici_id             | INT           | FOREIGN KEY          |
-|                     | yorum_metni              | TEXT          | NOT NULL             |
-|                     | yorum_tarihi             | DATETIME      | DEFAULT CURRENT_TIMESTAMP |
+| Tablo Adı          | Kolon                     | Tür           | Özellikler                       |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Universiteler**       | universite_id            | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | universite_adi           | VARCHAR(255)  | NOT NULL                         |
+|                     | adres                    | TEXT          | NULL                             |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Bolumler**            | bolum_id                 | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | bolum_adi                | VARCHAR(255)  | NOT NULL                         |
+|                     | universite_id            | INT           | FOREIGN KEY                      |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Alanlar**             | alan_id                  | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | alan_adi                 | VARCHAR(255)  | NOT NULL                         |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Oduller**             | odul_id                  | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | odul_adi                 | VARCHAR(255)  | NOT NULL                         |
+|                     | odul_aciklama            | TEXT          | NULL                             |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Konferanslar**        | konferans_id             | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | konferans_adi            | VARCHAR(255)  | NOT NULL                         |
+|                     | konferans_tarihi         | DATE          | NULL                             |
+|                     | konferans_yeri           | VARCHAR(255)  | NULL                             |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Koleksiyonlar**       | koleksiyon_id            | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | koleksiyon_adi           | VARCHAR(255)  | NOT NULL                         |
+|                     | aciklama                 | TEXT          | NULL                             |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **FinansKaynaklari**    | kaynak_id                | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | kaynak_adi               | VARCHAR(255)  | NOT NULL                         |
+|                     | kaynak_turu              | VARCHAR(255)  | NULL                             |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **AnahtarKelimeler**    | anahtar_kelime_id        | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | anahtar_kelime           | VARCHAR(255)  | NOT NULL                         |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Yazarlar**            | yazar_id                 | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | ad                       | VARCHAR(255)  | NOT NULL                         |
+|                     | soyad                    | VARCHAR(255)  | NOT NULL                         |
+|                     | email                    | VARCHAR(255)  | UNIQUE                           |
+|                     | unvan                    | VARCHAR(255)  | NULL                             |
+|                     | bolum_id                 | INT           | FOREIGN KEY                      |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Yayinlar**            | yayin_id                 | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | baslik                   | VARCHAR(255)  | NOT NULL                         |
+|                     | ozet                     | TEXT          | NULL                             |
+|                     | yayin_tarihi             | DATE          | NULL                             |
+|                     | doi                      | VARCHAR(255)  | UNIQUE                           |
+|                     | koleksiyon_id            | INT           | FOREIGN KEY                      |
+|                     | konferans_id             | INT           | FOREIGN KEY                      |
+|                     | alan_id                  | INT           | FOREIGN KEY                      |
+|                     | anahtar_kelime_id        | INT           | FOREIGN KEY                      |
+|                     | yazar_id                 | INT           | FOREIGN KEY                      |
+|                     | odul_id                  | INT           | FOREIGN KEY                      |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Projeler**            | proje_id                 | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | proje_adi                | VARCHAR(255)  | NOT NULL                         |
+|                     | proje_aciklama           | TEXT          | NULL                             |
+|                     | kaynak_id                | INT           | FOREIGN KEY                      |
+|                     | alan_id                  | INT           | FOREIGN KEY                      |
+|                     | bolum_id                 | INT           | FOREIGN KEY                      |
+|                     | yazar_id                 | INT           | FOREIGN KEY                      |
+|                     | odul_id                  | INT           | FOREIGN KEY                      |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Kullanicilar**        | kullanici_id             | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | kullanici_adi            | VARCHAR(255)  | NOT NULL, UNIQUE                 |
+|                     | sifre                    | VARCHAR(255)  | NOT NULL                         |
+|                     | rol                      | VARCHAR(50)   | NULL                             |
+|                     | yazar_id                 | INT           | FOREIGN KEY                      |
+|---------------------|--------------------------|---------------|----------------------------------|
+| **Yorumlar**            | yorum_id                 | INT           | PRIMARY KEY, IDENTITY(1,1)       |
+|                     | yayin_id                 | INT           | FOREIGN KEY                      |
+|                     | kullanici_id             | INT           | FOREIGN KEY                      |
+|                     | yorum_metni              | TEXT          | NOT NULL                         |
+|                     | yorum_tarihi             | DATETIME      | DEFAULT CURRENT_TIMESTAMP        |
+
 
 ## Kurulum
 
