@@ -6,52 +6,50 @@ Bu proje, akademik yayınların yönetimi, organizasyonu ve ilgili ilişkilerin 
 
 ![Veri Tabanı Şeması](https://github.com/user-attachments/assets/d0c55f10-023c-4714-8fcd-3b88bcd5ccd0)
 
+# Sistem Gereksinimleri
 
-## 1. Sistem Amacı
-Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağlamak, araştırmacıların ve akademisyenlerin katkılarını takip etmek ve akademik içeriklerin (yayınlar, projeler, konferanslar, vb.) bir arada sunulmasını kolaylaştırmaktır.
-
-## 2. Temel Kullanıcılar
+## 1. Temel Kullanıcılar
 - **Yazarlar (Araştırmacılar)**: Akademik içerik üreticileri, araştırmacılar ve akademisyenler.
 - **Kullanıcılar**: Sistemi kullanan genel kullanıcılar (akademik içerikleri sorgulayan, yorum yapan, vb.).
 - **Yöneticiler**: Sistemi yöneten kişiler, verileri ekleyen ve yöneten kişiler.
 
-## 3. Temel İşlevsel Gereksinimler
+## 2. Temel İşlevsel Gereksinimler
 
-### 3.1. Üniversite Yönetimi
+### 2.1. Üniversite Yönetimi
 - **Üniversite Bilgisi Ekleme**: Yeni üniversiteler sisteme eklenebilir.
 - **Bölüm Ekleme**: Üniversiteler altındaki bölümler eklenebilir ve her bölümün hangi üniversiteye ait olduğu belirlenebilir.
 - **Üniversite/Bölüm Silme**: Yönetici, üniversiteleri ve bölümleri silebilir.
 
-### 3.2. Araştırma Alanları ve Konular
+### 2.2. Araştırma Alanları ve Konular
 - **Araştırma Alanı Ekleme**: Alanlar tablosu aracılığıyla yeni araştırma alanları eklenebilir.
 - **Anahtar Kelimeler Ekleme**: Yayınlarda arama kolaylığı sağlamak için anahtar kelimeler eklenebilir.
 
-### 3.3. Yayın Yönetimi
+### 2.3. Yayın Yönetimi
 - **Yayın Ekleme**: Yazarlar, yayınlarının başlıklarını, özetlerini, tarihleri gibi bilgileri girebilir. Yayınlar belirli bir konferans veya koleksiyonla ilişkilendirilebilir.
 - **Yayınlara Yorum Yapma**: Kullanıcılar, yayınlar hakkında yorum yapabilir.
 - **Yayınları Etiketleme**: Yayınlar, alanlar, anahtar kelimeler ve ödüllerle ilişkilendirilebilir.
 
-### 3.4. Konferanslar ve Projeler
+### 2.4. Konferanslar ve Projeler
 - **Konferans Ekleme**: Konferanslar, tarihleri ve yerleri ile sisteme eklenebilir.
 - **Proje Ekleme**: Araştırma projeleri, projelere dair açıklamalar, ödüller ve finansal kaynaklar eklenebilir.
 
-### 3.5. Ödüller ve Finansal Kaynaklar
+### 2.5. Ödüller ve Finansal Kaynaklar
 - **Odüller Ekleme**: Akademik başarılar ödüllerle ilişkilendirilebilir.
 - **Finansal Kaynaklar Ekleme**: Araştırma projeleri için finansal kaynaklar eklenebilir.
 
-## 4. Sistem Gereksinimleri
+## 3. Sistem Gereksinimleri
 
-### 4.1. Veritabanı Gereksinimleri
+### 3.1. Veritabanı Gereksinimleri
 - Veritabanı, üniversiteler, bölümler, yayınlar, projeler, ödüller, anahtar kelimeler gibi birçok tabloyu içermelidir.
 - Veritabanında dış anahtar ilişkileri (FK) doğru şekilde yapılandırılmalıdır.
 - Veri bütünlüğü sağlanmalı, veriler tutarlı ve doğru olmalıdır.
 
-### 4.2. Kullanıcı Arayüzü Gereksinimleri
+### 3.2. Kullanıcı Arayüzü Gereksinimleri
 - **Yazar Arayüzü**: Yazarlar, yayınlarını ve projelerini ekleyip düzenleyebilecektir.
 - **Yorum ve Oylama Sistemi**: Kullanıcılar, yayınlar ve projeler hakkında yorum yapıp değerlendirme gerçekleştirebilir.
 - **Arama ve Filtreleme**: Kullanıcılar, yayınlar, konferanslar ve projeler arasında anahtar kelimeler, tarih, yazar vb. kriterlere göre arama yapabilir.
 
-### 4.3. Güvenlik Gereksinimleri
+### 3.3. Güvenlik Gereksinimleri
 - **Kullanıcı Girişi ve Kimlik Doğrulama**: Kullanıcılar için güvenli giriş ve kimlik doğrulama sistemleri olmalıdır.
 - **Rol Tabanlı Erişim Kontrolü**: Yöneticiler, kullanıcılar ve yazarlar için farklı erişim seviyeleri belirlenmelidir.
 
