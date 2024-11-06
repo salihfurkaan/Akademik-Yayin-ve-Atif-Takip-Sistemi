@@ -195,7 +195,9 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 ## Veri Tabanı E-R Diyagramı
 
-![Veri Tabanı Şeması](https://github.com/user-attachments/assets/d0c55f10-023c-4714-8fcd-3b88bcd5ccd0)
+
+
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/643a3e4e-226a-4796-9d51-f21a2c4714c7)
 
 
 ## Kurulum
