@@ -11,50 +11,48 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 # Sistem Gereksinimleri
 
-## 1. Temel Kullanıcılar
-- **Yazarlar (Araştırmacılar)**: Akademik içerik üreticileri, araştırmacılar ve akademisyenler.
-- **Kullanıcılar**: Sistemi kullanan genel kullanıcılar (akademik içerikleri sorgulayan, yorum yapan, vb.).
-- **Yöneticiler**: Sistemi yöneten kişiler, verileri ekleyen ve yöneten kişiler.
+# 1. Kullanıcı Tipleri ve Roller
+- **Yazarlar (Araştırmacılar)**: Akademik içerik üreten ve yöneten araştırmacılar ve akademisyenler.
+- **Kullanıcılar**: Akademik içeriği sorgulayan ve yorum yapan genel kullanıcılar.
+- **Yöneticiler**: Sistemi yönetme yetkisine sahip olan ve tüm verileri düzenleyebilen kullanıcılar.
 
-## 2. Temel İşlevsel Gereksinimler
+# 2. Temel İşlevsel Gereksinimler
 
-### 2.1. Üniversite Yönetimi
-- **Üniversite Bilgisi Ekleme**: Yeni üniversiteler sisteme eklenebilir.
-- **Bölüm Ekleme**: Üniversiteler altındaki bölümler eklenebilir ve her bölümün hangi üniversiteye ait olduğu belirlenebilir.
-- **Üniversite/Bölüm Silme**: Yönetici, üniversiteleri ve bölümleri silebilir.
+## 2.1 Üniversite Yönetimi
+- **Üniversite Bilgisi Yönetimi**: Yeni üniversiteler sisteme eklenebilmeli; üniversiteye ait bilgiler ve adres detayları düzenlenebilir.
+- **Bölüm Yönetimi**: Üniversitelere bağlı olarak bölümler eklenebilir; her bölümün üniversiteye olan bağı tanımlanır. Gerektiğinde bölümler ve üniversiteler sistemden kaldırılabilir.
 
-### 2.2. Araştırma Alanları ve Konular
-- **Araştırma Alanı Ekleme**: Alanlar tablosu aracılığıyla yeni araştırma alanları eklenebilir.
-- **Anahtar Kelimeler Ekleme**: Yayınlarda arama kolaylığı sağlamak için anahtar kelimeler eklenebilir.
+## 2.2 Araştırma Alanları ve Konular
+- **Araştırma Alanı Ekleme**: Yeni araştırma alanları tanımlanarak akademik içeriklere alan bazında etiketleme yapılabilir.
+- **Anahtar Kelime Yönetimi**: Yayınların ve projelerin arama kolaylığı sağlamak için anahtar kelimeler eklenebilir ve düzenlenebilir.
 
-### 2.3. Yayın Yönetimi
-- **Yayın Ekleme**: Yazarlar, yayınlarının başlıklarını, özetlerini, tarihleri gibi bilgileri girebilir. Yayınlar belirli bir konferans veya koleksiyonla ilişkilendirilebilir.
-- **Yayınlara Yorum Yapma**: Kullanıcılar, yayınlar hakkında yorum yapabilir.
-- **Yayınları Etiketleme**: Yayınlar, alanlar, anahtar kelimeler ve ödüllerle ilişkilendirilebilir.
+## 2.3 Yayın Yönetimi
+- **Yayın Ekleme ve Düzenleme**: Yazarlar, yayınlarının başlık, özet, tarih ve konferans bağlantılarını ekleyebilir. Yayınlar konferans veya koleksiyonlar ile ilişkilendirilebilir.
+- **Yorum Yapma ve Etkileşim**: Kullanıcılar yayınlar hakkında yorum yapabilir; yayınlara anahtar kelimeler, araştırma alanları ve ödüller eklenebilir.
 
-### 2.4. Konferanslar ve Projeler
-- **Konferans Ekleme**: Konferanslar, tarihleri ve yerleri ile sisteme eklenebilir.
-- **Proje Ekleme**: Araştırma projeleri, projelere dair açıklamalar, ödüller ve finansal kaynaklar eklenebilir.
+## 2.4 Konferans ve Proje Yönetimi
+- **Konferans Bilgileri**: Konferanslar tarih, yer gibi detaylarla sisteme eklenir ve projeler ya da yayınlar ile ilişkilendirilebilir.
+- **Proje Yönetimi**: Araştırma projeleri eklenebilir, açıklamaları ve ödülleriyle birlikte ilgili alanlarla ve finans kaynakları ile ilişkilendirilebilir.
 
-### 2.5. Ödüller ve Finansal Kaynaklar
-- **Odüller Ekleme**: Akademik başarılar ödüllerle ilişkilendirilebilir.
-- **Finansal Kaynaklar Ekleme**: Araştırma projeleri için finansal kaynaklar eklenebilir.
+## 2.5 Ödül ve Finansman Yönetimi
+- **Ödüller**: Akademik başarıları tanımlayan ödüller, yayın veya projeler ile ilişkilendirilebilir.
+- **Finans Kaynakları**: Araştırma projeleri için sağlanan finansal kaynak bilgileri eklenebilir ve türlerine göre kategorize edilebilir.
 
-## 3. Sistem Gereksinimleri
+# 3. Sistem Gereksinimleri
 
-### 3.1. Veritabanı Gereksinimleri
-- Veritabanı, üniversiteler, bölümler, yayınlar, projeler, ödüller, anahtar kelimeler gibi birçok tabloyu içermelidir.
-- Veritabanında dış anahtar ilişkileri (FK) doğru şekilde yapılandırılmalıdır.
-- Veri bütünlüğü sağlanmalı, veriler tutarlı ve doğru olmalıdır.
+## 3.1 Veritabanı Gereksinimleri
+- **Veritabanı Yapısı**: Veritabanı, üniversiteler, bölümler, yayınlar, projeler, ödüller ve diğer bileşenleri içerecek şekilde yapılandırılmalıdır.
+- **İlişki Yapıları**: Dış anahtar ilişkileri doğru bir şekilde tanımlanarak veri bütünlüğü sağlanmalıdır.
+- **Veri Tutarlılığı**: Veritabanında tutarlılık sağlanmalı ve tüm tablolar arasındaki ilişkiler doğrulanmalıdır.
 
-### 3.2. Kullanıcı Arayüzü Gereksinimleri
-- **Yazar Arayüzü**: Yazarlar, yayınlarını ve projelerini ekleyip düzenleyebilecektir.
-- **Yorum ve Oylama Sistemi**: Kullanıcılar, yayınlar ve projeler hakkında yorum yapıp değerlendirme gerçekleştirebilir.
-- **Arama ve Filtreleme**: Kullanıcılar, yayınlar, konferanslar ve projeler arasında anahtar kelimeler, tarih, yazar vb. kriterlere göre arama yapabilir.
+## 3.2 Kullanıcı Arayüzü Gereksinimleri
+- **Yazar Arayüzü**: Yazarlar kendi yayın ve projelerini ekleyip düzenleyebileceği bir arayüze sahip olmalıdır.
+- **Yorum ve Oylama Sistemleri**: Kullanıcılar akademik içerikler hakkında yorum yapıp değerlendirme bırakabilir.
+- **Arama ve Filtreleme**: Yayınlar, konferanslar ve projeler anahtar kelime, tarih, yazar ve alan bazında filtrelenebilir ve aranabilir.
 
-### 3.3. Güvenlik Gereksinimleri
-- **Kullanıcı Girişi ve Kimlik Doğrulama**: Kullanıcılar için güvenli giriş ve kimlik doğrulama sistemleri olmalıdır.
-- **Rol Tabanlı Erişim Kontrolü**: Yöneticiler, kullanıcılar ve yazarlar için farklı erişim seviyeleri belirlenmelidir.
+## 3.3 Güvenlik Gereksinimleri
+- **Kimlik Doğrulama ve Yetkilendirme**: Kullanıcıların güvenli bir şekilde sisteme giriş yapabilmesi ve doğrulama sürecinden geçmesi sağlanmalıdır.
+- **Rol Tabanlı Erişim**: Kullanıcılar (yazar, yönetici, genel kullanıcı) için farklı erişim seviyeleri tanımlanarak yetki kontrolü yapılmalıdır.
 
 ## Tablolar ve İlişkiler
 
