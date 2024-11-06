@@ -61,8 +61,8 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 | İlişki                     | Varlık 1         | Varlık 2           | İlişkiler   |
 |---------------------------|------------------|---------------------|-------------|
 | Sahip Olur                | Universiteler    | Bolumler            | 1:N         |
-| Barındırır                | Bolumler         | Yazarlar            | 1:N         |
-| Olabilir                  | Yazarlar         | Kullanicilar        | 1:N         |
+| Barındırır                | Bolumler         | Yazarlar            | N:N         |
+| Olabilir                  | Yazarlar         | Kullanicilar        | 1:1         |
 | Katılır                   | Yazarlar         | Projeler            | N:N         |
 | Yazar                     | Yazarlar         | Yayinlar            | N:N         |
 | Yazar                     | Kullanicilar     | Yorumlar            | 1:N         |
