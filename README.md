@@ -82,138 +82,116 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 ## Tablolar
 
-## Universiteler
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| universite_id   | INT           | IDENTITY(1,1)        |
-| universite_adi  | VARCHAR(255)  | NOT NULL             |
-| adres           | TEXT          | NULL                 |
+### Universiteler
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| universite_id    | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| universite_adi   | VARCHAR(255)| NOT NULL                        |
+| adres            | TEXT        | NULL                            |
 
----
+### Bolumler
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| bolum_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| bolum_adi        | VARCHAR(255)| NOT NULL                        |
+| universite_id    | INT         | FK (Universiteler)              |
 
-## Bolumler
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| bolum_id        | INT           | IDENTITY(1,1)        |
-| bolum_adi       | VARCHAR(255)  | NOT NULL             |
-| universite_id   | INT           | FK (Universiteler)   |
+### Alanlar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| alan_id          | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| alan_adi         | VARCHAR(255)| NOT NULL                        |
 
----
+### Oduller
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| odul_id          | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| odul_adi         | VARCHAR(255)| NOT NULL                        |
+| odul_aciklama    | TEXT        | NULL                            |
 
-## Alanlar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| alan_id         | INT           | IDENTITY(1,1)        |
-| alan_adi        | VARCHAR(255)  | NOT NULL             |
+### Konferanslar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| konferans_id     | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| konferans_adi    | VARCHAR(255)| NOT NULL                        |
+| konferans_tarihi | DATE        | NULL                            |
+| konferans_yeri   | VARCHAR(255)| NULL                            |
 
----
+### Koleksiyonlar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| koleksiyon_id    | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| koleksiyon_adi   | VARCHAR(255)| NOT NULL                        |
+| aciklama         | TEXT        | NULL                            |
 
-## Oduller
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| odul_id         | INT           | IDENTITY(1,1)        |
-| odul_adi        | VARCHAR(255)  | NOT NULL             |
-| odul_aciklama   | TEXT          | NULL                 |
+### FinansKaynaklari
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| kaynak_id        | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| kaynak_adi       | VARCHAR(255)| NOT NULL                        |
+| kaynak_turu      | VARCHAR(255)| NULL                            |
 
----
+### AnahtarKelimeler
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| anahtar_kelime_id| INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| anahtar_kelime   | VARCHAR(255)| NOT NULL                        |
 
-## Konferanslar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| konferans_id    | INT           | IDENTITY(1,1)        |
-| konferans_adi   | VARCHAR(255)  | NOT NULL             |
-| konferans_tarihi| DATE          | NULL                 |
-| konferans_yeri  | VARCHAR(255)  | NULL                 |
+### Yazarlar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| yazar_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| ad               | VARCHAR(255)| NOT NULL                        |
+| soyad            | VARCHAR(255)| NOT NULL                        |
+| email            | VARCHAR(255)| UNIQUE                          |
+| unvan            | VARCHAR(255)| NULL                            |
+| bolum_id         | INT         | FK (Bolumler)                   |
 
----
+### Yayinlar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| yayin_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| baslik           | VARCHAR(255)| NOT NULL                        |
+| ozet             | TEXT        | NULL                            |
+| yayin_tarihi     | DATE        | NULL                            |
+| doi              | VARCHAR(255)| UNIQUE                          |
+| koleksiyon_id    | INT         | FK (Koleksiyonlar)              |
+| konferans_id     | INT         | FK (Konferanslar)               |
+| alan_id          | INT         | FK (Alanlar)                    |
+| anahtar_kelime_id| INT         | FK (AnahtarKelimeler)           |
+| yazar_id         | INT         | FK (Yazarlar)                   |
+| odul_id          | INT         | FK (Oduller)                    |
 
-## Koleksiyonlar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| koleksiyon_id   | INT           | IDENTITY(1,1)        |
-| koleksiyon_adi  | VARCHAR(255)  | NOT NULL             |
-| aciklama        | TEXT          | NULL                 |
+### Projeler
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| proje_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| proje_adi        | VARCHAR(255)| NOT NULL                        |
+| proje_aciklama   | TEXT        | NULL                            |
+| kaynak_id        | INT         | FK (FinansKaynaklari)           |
+| alan_id          | INT         | FK (Alanlar)                    |
+| bolum_id         | INT         | FK (Bolumler)                   |
+| yazar_id         | INT         | FK (Yazarlar)                   |
+| odul_id          | INT         | FK (Oduller)                    |
 
----
+### Kullanicilar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| kullanici_id     | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| kullanici_adi    | VARCHAR(255)| NOT NULL, UNIQUE                |
+| sifre            | VARCHAR(255)| NOT NULL                        |
+| rol              | VARCHAR(50) | NULL                            |
+| yazar_id         | INT         | FK (Yazarlar)                   |
 
-## FinansKaynaklari
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| kaynak_id       | INT           | IDENTITY(1,1)        |
-| kaynak_adi      | VARCHAR(255)  | NOT NULL             |
-| kaynak_turu     | VARCHAR(255)  | NULL                 |
+### Yorumlar
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| yorum_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| yayin_id         | INT         | FK (Yayinlar)                   |
+| kullanici_id     | INT         | FK (Kullanicilar)               |
+| yorum_metni      | TEXT        | NULL                            |
+| yorum_tarihi     | DATETIME    | DEFAULT CURRENT_TIMESTAMP       |
 
----
-
-## AnahtarKelimeler
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| anahtar_kelime_id | INT         | IDENTITY(1,1)        |
-| anahtar_kelime   | VARCHAR(255)  | NOT NULL             |
-
----
-## Yazarlar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| yazar_id        | INT           | IDENTITY(1,1)        |
-| ad              | VARCHAR(255)  | NOT NULL             |
-| soyad           | VARCHAR(255)  | NOT NULL             |
-| email           | VARCHAR(255)  | UNIQUE               |
-| unvan           | VARCHAR(255)  | NULL                 |
-| bolum_id        | INT           | FK (Bolumler)        |
-
----
-
-## Yayinlar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| yayin_id        | INT           | IDENTITY(1,1)        |
-| baslik          | VARCHAR(255)  | NOT NULL             |
-| ozet            | TEXT          | NULL                 |
-| yayin_tarihi    | DATE          | NULL                 |
-| doi             | VARCHAR(255)  | UNIQUE               |
-| koleksiyon_id   | INT           | FK (Koleksiyonlar)   |
-| konferans_id    | INT           | FK (Konferanslar)    |
-| alan_id         | INT           | FK (Alanlar)         |
-| anahtar_kelime_id | INT         | FK (AnahtarKelimeler)|
-| yazar_id        | INT           | FK (Yazarlar)        |
-| odul_id         | INT           | FK (Oduller)         |
-
----
-
-## Projeler
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| proje_id        | INT           | IDENTITY(1,1)        |
-| proje_adi       | VARCHAR(255)  | NOT NULL             |
-| proje_aciklama  | TEXT          | NULL                 |
-| kaynak_id       | INT           | FK (FinansKaynaklari)|
-| alan_id         | INT           | FK (Alanlar)         |
-| bolum_id        | INT           | FK (Bolumler)        |
-| yazar_id        | INT           | FK (Yazarlar)        |
-| odul_id         | INT           | FK (Oduller)         |
-
----
-
-## Kullanicilar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| kullanici_id    | INT           | IDENTITY(1,1)        |
-| kullanici_adi   | VARCHAR(255)  | NOT NULL, UNIQUE     |
-| sifre           | VARCHAR(255)  | NOT NULL             |
-| rol             | VARCHAR(50)   | NULL                 |
-| yazar_id        | INT           | FK (Yazarlar)        |
-
----
-
-## Yorumlar
-| Kolon           | Tür           | Özellikler           |
-|-----------------|---------------|----------------------|
-| yorum_id        | INT           | IDENTITY(1,1)        |
-| yayin_id        | INT           | FK (Yayinlar)        |
-| kullanici_id    | INT           | FK (Kullanicilar)    |
-| yorum_metni     | TEXT          | NULLABLE            |
-| yorum_tarihi    | DATETIME      | DEFAULT CURRENT_TIMESTAMP |
 
 ## Veri Tabanı E-R Diyagramı
 
