@@ -2,6 +2,13 @@
 
 Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağlamak, araştırmacıların ve akademisyenlerin katkılarını takip etmek ve akademik içeriklerin (yayınlar, projeler, konferanslar, ödüller vb.) bir arada sunulmasını kolaylaştırmaktır. Sistem, üniversiteler, bölümler, alanlar ve diğer akademik öğeler arasındaki ilişkileri düzenleyerek, akademik içeriklerin takibini etkili bir şekilde sağlar.
 
+# Projeyi Yapan Öğrenciler
+
+- 225260058 - Fuat Yavaş
+- 225260016 - İsmail Şahin
+- 225260052 - Salih Furkan Erik
+
+
 # Sistem Gereksinimleri
 
 ## 1. Temel Kullanıcılar
@@ -208,7 +215,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 | yorum_metni     | TEXT          | NULLABLE            |
 | yorum_tarihi    | DATETIME      | DEFAULT CURRENT_TIMESTAMP |
 
-## Veri Tabanı Şeması
+## Veri Tabanı E-R Diyagramı
 
 ![Veri Tabanı Şeması](https://github.com/user-attachments/assets/d0c55f10-023c-4714-8fcd-3b88bcd5ccd0)
 
