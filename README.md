@@ -197,7 +197,8 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 
 
-![Veri Tabanı Şeması](https://github.com/user-attachments/assets/643a3e4e-226a-4796-9d51-f21a2c4714c7)
+
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/bea2bb31-646c-4596-85d4-2fdc467d62a3)
 
 
 ## Kurulum
