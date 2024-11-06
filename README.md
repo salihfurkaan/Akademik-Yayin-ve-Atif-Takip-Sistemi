@@ -210,7 +210,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 | yorum_id        | INT           | IDENTITY(1,1)        |
 | yayin_id        | INT           | FK (Yayinlar)        |
 | kullanici_id    | INT           | FK (Kullanicilar)    |
-| yorum_metni     | TEXT          | NOT NULL             |
+| yorum_metni     | TEXT          | NULLABLE            |
 | yorum_tarihi    | DATETIME      | DEFAULT CURRENT_TIMESTAMP |
 
 
