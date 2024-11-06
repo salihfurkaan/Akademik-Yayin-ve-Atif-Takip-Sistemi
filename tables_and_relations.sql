@@ -118,7 +118,7 @@ CREATE TABLE Yorumlar (
     yorum_id INT IDENTITY(1,1) PRIMARY KEY,
     yayin_id INT,
     kullanici_id INT,
-    yorum_metni TEXT NOT NULL,
+    yorum_metni TEXT,
     yorum_tarihi DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (yayin_id) REFERENCES Yayinlar(yayin_id),
     FOREIGN KEY (kullanici_id) REFERENCES Kullanicilar(kullanici_id)
