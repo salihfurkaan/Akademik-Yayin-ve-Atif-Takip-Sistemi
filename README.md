@@ -2,11 +2,6 @@
 
 Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağlamak, araştırmacıların ve akademisyenlerin katkılarını takip etmek ve akademik içeriklerin (yayınlar, projeler, konferanslar, ödüller vb.) bir arada sunulmasını kolaylaştırmaktır. Sistem, üniversiteler, bölümler, alanlar ve diğer akademik öğeler arasındaki ilişkileri düzenleyerek, akademik içeriklerin takibini etkili bir şekilde sağlar.
 
-
-## Veri Tabanı Şeması
-
-![Veri Tabanı Şeması](https://github.com/user-attachments/assets/d0c55f10-023c-4714-8fcd-3b88bcd5ccd0)
-
 # Sistem Gereksinimleri
 
 ## 1. Temel Kullanıcılar
@@ -212,6 +207,10 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 | kullanici_id    | INT           | FK (Kullanicilar)    |
 | yorum_metni     | TEXT          | NULLABLE            |
 | yorum_tarihi    | DATETIME      | DEFAULT CURRENT_TIMESTAMP |
+
+## Veri Tabanı Şeması
+
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/d0c55f10-023c-4714-8fcd-3b88bcd5ccd0)
 
 
 ## Kurulum
