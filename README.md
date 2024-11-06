@@ -69,7 +69,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 | Finansmanı                | Projeler         | FinansKaynaklari    | 1:N         |
 | Alanında                  | Projeler         | Alanlar             | N:N         |
 | Yürütülür                 | Projeler         | Bolumler            | N:N         |
-| Kazanır                   | Projeler         | Oduller             | N:N         |
+| Kazanır                   | Projeler         | Oduller             | 1:N         |
 | İçinde                    | Yayinlar         | Koleksiyonlar       | N:1         |
 | Sunulur                   | Yayinlar         | Konferanslar        | N:N         |
 | Alanında                  | Yayinlar         | Alanlar             | N:N         |
@@ -196,7 +196,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 
 
-![Veri Tabanı Şeması](https://github.com/user-attachments/assets/bea2bb31-646c-4596-85d4-2fdc467d62a3)
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/ad4f94ad-0ef1-40e4-b5b8-d0a7bc4ed2df)
 
 
 ## Kurulum
