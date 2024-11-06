@@ -70,7 +70,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 | Alanında                  | Projeler         | Alanlar             | N:N         |
 | Yürütülür                 | Projeler         | Bolumler            | N:N         |
 | Kazanır                   | Projeler         | Oduller             | N:N         |
-| İçinde                    | Yayinlar         | Koleksiyonlar       | 1:N         |
+| İçinde                    | Yayinlar         | Koleksiyonlar       | N:1         |
 | Sunulur                   | Yayinlar         | Konferanslar        | N:N         |
 | Alanında                  | Yayinlar         | Alanlar             | N:N         |
 | İçerir                    | Yayinlar         | AnahtarKelimeler    | N:N         |
