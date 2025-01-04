@@ -181,7 +181,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 |------------------|-------------|----------------------------------|
 | yayin_no         | INT         | FOREIGN KEY (Yayinlar)          |
 | yazar_no         | INT         | FOREIGN KEY (Yazarlar)          |
-| PRIMARY KEY      | (yayin_no, yazar_no)                           |
+|                  |             | PRIMARY KEY (yayin_no, yazar_no)|
 
 ### Projeler
 | Column           | Type        | Properties                       |
@@ -198,7 +198,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 |------------------|-------------|----------------------------------|
 | proje_no         | INT         | FOREIGN KEY (Projeler)          |
 | yazar_no         | INT         | FOREIGN KEY (Yazarlar)          |
-| PRIMARY KEY      | (proje_no, yazar_no)                          |
+|                  |             | PRIMARY KEY (proje_no, yazar_no)|
 
 ### YazarÖdüller Tablosu
 
@@ -206,7 +206,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 |------------------|-------------|----------------------------------|
 | yazar_no         | INT         | FOREIGN KEY (Yazarlar)          |
 | odul_no          | INT         | FOREIGN KEY (Oduller)           |
-| PRIMARY KEY      | (yazar_no, odul_no)                           |
+|                  |             |PRIMARY KEY  (yazar_no, odul_no) |
 
 ### YayınÖdüller Tablosu
 
@@ -214,7 +214,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 |------------------|-------------|----------------------------------|
 | yayin_no         | INT         | FOREIGN KEY (Yayinlar)          |
 | odul_no          | INT         | FOREIGN KEY (Oduller)           |
-| PRIMARY KEY      | (yayin_no, odul_no)                           |
+|                  |             | PRIMARY KEY (yayin_no, odul_no) |
 
 ### ProjeÖdüller Tablosu
 
@@ -222,7 +222,7 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 |------------------|-------------|----------------------------------|
 | proje_no         | INT         | FOREIGN KEY (Projeler)          |
 | odul_no          | INT         | FOREIGN KEY (Oduller)           |
-| PRIMARY KEY      | (proje_no, odul_no)                           |
+|                   |            |PRIMARY KEY (proje_no, odul_no)  |
 
 ## Veri Tabanı E-R Diyagramı
 
