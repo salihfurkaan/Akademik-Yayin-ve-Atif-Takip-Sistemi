@@ -13,7 +13,6 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 # 1. Kullanıcı Tipleri ve Roller
 - **Yazarlar (Araştırmacılar)**: Akademik içerik üreten ve yöneten araştırmacılar ve akademisyenler.
-- **Kullanıcılar**: Akademik içeriği sorgulayan ve yorum yapan genel kullanıcılar.
 - **Yöneticiler**: Sistemi yönetme yetkisine sahip olan ve tüm verileri düzenleyebilen kullanıcılar.
 
 # 2. Temel İşlevsel Gereksinimler
@@ -47,7 +46,6 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 
 ## 3.2 Kullanıcı Arayüzü Gereksinimleri
 - **Yazar Arayüzü**: Yazarlar kendi yayın ve projelerini ekleyip düzenleyebileceği bir arayüze sahip olmalıdır.
-- **Yorum ve Oylama Sistemleri**: Kullanıcılar akademik içerikler hakkında yorum yapıp değerlendirme bırakabilir.
 - **Arama ve Filtreleme**: Yayınlar, konferanslar ve projeler anahtar kelime, tarih, yazar ve alan bazında filtrelenebilir ve aranabilir.
 
 ## 3.3 Güvenlik Gereksinimleri
@@ -59,23 +57,35 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 ## İlişkiler
 
 | İlişki                     | Varlık 1         | Varlık 2           | İlişkiler   |
-|---------------------------|------------------|---------------------|-------------|
-| Sahip Olur                | Universiteler    | Bolumler            | 1:N         |
-| Barındırır                | Bolumler         | Yazarlar            | N:N         |
-| Olabilir                  | Yazarlar         | Kullanicilar        | 1:1         |
-| Katılır                   | Yazarlar         | Projeler            | N:N         |
-| Yazar                     | Yazarlar         | Yayinlar            | N:N         |
-| Yazar                     | Kullanicilar     | Yorumlar            | 1:N         |
-| Finansmanı                | Projeler         | FinansKaynaklari    | 1:N         |
-| Alanında                  | Projeler         | Alanlar             | N:N         |
-| Yürütülür                 | Projeler         | Bolumler            | N:N         |
-| Kazanır                   | Projeler         | Oduller             | 1:N         |
-| İçinde                    | Yayinlar         | Koleksiyonlar       | N:1         |
-| Sunulur                   | Yayinlar         | Konferanslar        | N:N         |
-| Alanında                  | Yayinlar         | Alanlar             | N:N         |
-| İçerir                    | Yayinlar         | AnahtarKelimeler    | N:N         |
-| Kazanır                   | Yayinlar         | Oduller             | 1:N         |
-| Alır                      | Yayinlar         | Yorumlar            | 1:N         |
+|----------------------------|------------------|--------------------|-------------|
+| Sahip                     | Üniversiteler    | Bölümler           | 1:N         |
+| Ait                       | Bölümler         | Üniversiteler      | N:1         |
+| İstihdam Ediyor           | Bölümler         | Yazarlar           | 1:N         |
+| İçinde Çalışıyor          | Yazarlar         | Bölümler           | N:1         |
+| Yazarı                    | Yazarlar         | Yayınlar           | N:N         |
+| Yayında Bulunan           | Yayınlar         | Yazarlar           | N:N         |
+| Finanse Ediyor            | FinansKaynakları | Projeler           | 1:N         |
+| Tarafından Finanse Edilen | Projeler         | FinansKaynakları   | N:1         |
+| Üzerine Odaklanıyor       | Projeler         | Alanlar            | 1:N         |
+| Alanı                     | Alanlar          | Projeler           | N:1         |
+| Tarafından Yürütülen      | Projeler         | Bölümler           | 1:N         |
+| İçin Bölüm                | Bölümler         | Projeler           | N:1         |
+| Proje Kazanır             | Projeler         | Ödüller            | N:N         |
+| Projeye Verilen           | Ödüller          | Projeler           | N:N         |
+| Parçası                   | Yayınlar         | Koleksiyonlar      | N:1         |
+| Koleksiyon İçerir         | Koleksiyonlar    | Yayınlar           | 1:N         |
+| Sunulduğu Yer             | Yayınlar         | Konferanslar       | N:1         |
+| Konferans İçerir          | Konferanslar     | Yayınlar           | 1:N         |
+| Yayının Alanı             | Yayınlar         | Alanlar            | N:1         |
+| Yayının Alanları          | Alanlar          | Yayınlar           | 1:N         |
+| İle Etiketlenmiş          | Yayınlar         | AnahtarKelimeler   | N:1         |
+| İçin Anahtar Kelime       | AnahtarKelimeler | Yayınlar           | 1:N         |
+| Yayın Kazanır             | Yayınlar         | Ödüller            | N:N         |
+| Yayına Verilen            | Ödüller          | Yayınlar           | N:N         |
+| Yazar Kazanır             | Yazarlar         | Ödüller            | N:N         |
+| Yazara Verilen            | Ödüller          | Yazarlar           | N:N         |
+| Yazar Katkıda Bulunur     | Yazarlar         | Projeler           | N:N         |
+| Proje İçerir              | Projeler         | Yazarlar           | N:N         |
 
 
 ## Tablolar
@@ -83,121 +93,142 @@ Bu sistemin amacı, akademik çalışmaların ve projelerin yönetilmesini sağl
 ### Universiteler
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| universite_id    | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| universite_no    | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | universite_adi   | VARCHAR(255)| NOT NULL                        |
 | adres            | TEXT        | NULL                            |
 
 ### Bolumler
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| bolum_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| bolum_no         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | bolum_adi        | VARCHAR(255)| NOT NULL                        |
-| universite_id    | INT         | FK (Universiteler)              |
+| universite_no    | INT         | NOT NULL, FOREIGN KEY (Universiteler) |
+
 
 ### Alanlar
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| alan_id          | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| alan_no          | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | alan_adi         | VARCHAR(255)| NOT NULL                        |
+
 
 ### Oduller
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| odul_id          | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| odul_no          | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | odul_adi         | VARCHAR(255)| NOT NULL                        |
 | odul_aciklama    | TEXT        | NULL                            |
+
 
 ### Konferanslar
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| konferans_id     | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| konferans_no     | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | konferans_adi    | VARCHAR(255)| NOT NULL                        |
 | konferans_tarihi | DATE        | NULL                            |
 | konferans_yeri   | VARCHAR(255)| NULL                            |
 
+
 ### Koleksiyonlar
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| koleksiyon_id    | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| koleksiyon_no    | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | koleksiyon_adi   | VARCHAR(255)| NOT NULL                        |
 | aciklama         | TEXT        | NULL                            |
+
 
 ### FinansKaynaklari
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| kaynak_id        | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| kaynak_no        | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | kaynak_adi       | VARCHAR(255)| NOT NULL                        |
 | kaynak_turu      | VARCHAR(255)| NULL                            |
+
 
 ### AnahtarKelimeler
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| anahtar_kelime_id| INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| anahtar_kelime_no| INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | anahtar_kelime   | VARCHAR(255)| NOT NULL                        |
+
 
 ### Yazarlar
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| yazar_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| yazar_no         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | ad               | VARCHAR(255)| NOT NULL                        |
 | soyad            | VARCHAR(255)| NOT NULL                        |
-| email            | VARCHAR(255)| UNIQUE                          |
+| eposta           | VARCHAR(255)| NOT NULL, UNIQUE                |
 | unvan            | VARCHAR(255)| NULL                            |
-| bolum_id         | INT         | FK (Bolumler)                   |
+| bolum_no         | INT         | NOT NULL, FOREIGN KEY (Bolumler)|
+
 
 ### Yayinlar
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| yayin_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| yayin_no         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | baslik           | VARCHAR(255)| NOT NULL                        |
 | ozet             | TEXT        | NULL                            |
 | yayin_tarihi     | DATE        | NULL                            |
-| doi              | VARCHAR(255)| UNIQUE                          |
-| koleksiyon_id    | INT         | FK (Koleksiyonlar)              |
-| konferans_id     | INT         | FK (Konferanslar)               |
-| alan_id          | INT         | FK (Alanlar)                    |
-| anahtar_kelime_id| INT         | FK (AnahtarKelimeler)           |
-| yazar_id         | INT         | FK (Yazarlar)                   |
-| odul_id          | INT         | FK (Oduller)                    |
+| doi              | VARCHAR(255)| NULL, UNIQUE                    |
+| koleksiyon_no    | INT         | NULL, FOREIGN KEY (Koleksiyonlar)|
+| konferans_no     | INT         | NULL, FOREIGN KEY (Konferanslar)|
+| alan_no          | INT         | NULL, FOREIGN KEY (Alanlar)     |
+| anahtar_kelime_no| INT         | NULL, FOREIGN KEY (AnahtarKelimeler)|
+
+### YayınYazarlar Tablosu
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| yayin_no         | INT         | FOREIGN KEY (Yayinlar)          |
+| yazar_no         | INT         | FOREIGN KEY (Yazarlar)          |
+| PRIMARY KEY      | (yayin_no, yazar_no)                           |
 
 ### Projeler
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| proje_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
+| proje_no         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
 | proje_adi        | VARCHAR(255)| NOT NULL                        |
 | proje_aciklama   | TEXT        | NULL                            |
-| kaynak_id        | INT         | FK (FinansKaynaklari)           |
-| alan_id          | INT         | FK (Alanlar)                    |
-| bolum_id         | INT         | FK (Bolumler)                   |
-| yazar_id         | INT         | FK (Yazarlar)                   |
-| odul_id          | INT         | FK (Oduller)                    |
+| kaynak_no        | INT         | NOT NULL, FOREIGN KEY (FinansKaynaklari)|
+| alan_no          | INT         | NOT NULL, FOREIGN KEY (Alanlar) |
+| bolum_no         | INT         | NOT NULL, FOREIGN KEY (Bolumler)|
 
-### Kullanicilar
+### ProjeYazarlar Tablosu
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| kullanici_id     | INT         | PRIMARY KEY, IDENTITY(1,1)      |
-| kullanici_adi    | VARCHAR(255)| NOT NULL, UNIQUE                |
-| sifre            | VARCHAR(255)| NOT NULL                        |
-| rol              | VARCHAR(50) | NULL                            |
-| yazar_id         | INT         | FK (Yazarlar)                   |
+| proje_no         | INT         | FOREIGN KEY (Projeler)          |
+| yazar_no         | INT         | FOREIGN KEY (Yazarlar)          |
+| PRIMARY KEY      | (proje_no, yazar_no)                          |
 
-### Yorumlar
+### YazarÖdüller Tablosu
+
 | Column           | Type        | Properties                       |
 |------------------|-------------|----------------------------------|
-| yorum_id         | INT         | PRIMARY KEY, IDENTITY(1,1)      |
-| yayin_id         | INT         | FK (Yayinlar)                   |
-| kullanici_id     | INT         | FK (Kullanicilar)               |
-| yorum_metni      | TEXT        | NULL                            |
-| yorum_tarihi     | DATETIME    | DEFAULT CURRENT_TIMESTAMP       |
+| yazar_no         | INT         | FOREIGN KEY (Yazarlar)          |
+| odul_no          | INT         | FOREIGN KEY (Oduller)           |
+| PRIMARY KEY      | (yazar_no, odul_no)                           |
 
+### YayınÖdüller Tablosu
+
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| yayin_no         | INT         | FOREIGN KEY (Yayinlar)          |
+| odul_no          | INT         | FOREIGN KEY (Oduller)           |
+| PRIMARY KEY      | (yayin_no, odul_no)                           |
+
+### ProjeÖdüller Tablosu
+
+| Column           | Type        | Properties                       |
+|------------------|-------------|----------------------------------|
+| proje_no         | INT         | FOREIGN KEY (Projeler)          |
+| odul_no          | INT         | FOREIGN KEY (Oduller)           |
+| PRIMARY KEY      | (proje_no, odul_no)                           |
 
 ## Veri Tabanı E-R Diyagramı
 
 
 
-
-![Veri Tabanı Şeması](https://github.com/user-attachments/assets/ad4f94ad-0ef1-40e4-b5b8-d0a7bc4ed2df)
-
+![Veri Tabanı Şeması](https://github.com/user-attachments/assets/5e87723f-c3ce-465d-bcc9-4d19c02f45d1)
 
 ## Kurulum
 
