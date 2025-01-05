@@ -9,7 +9,7 @@
 
 /*   
     1. TABLOLARIN OLUŞTURULMASI   
-       (İstenilen ilişkiler, birincil-yabancı anahtarlar ve uygun veri türleri)  
+ 
 */  
 
 -- Universiteler tablosu  
@@ -158,9 +158,7 @@ GO
 
 /*  
     2. TETİKLEYİCİ (TRIGGER) ÖRNEĞİ  
-    - Bu tetikleyici, Yayinlar tablosuna yeni bir kayıt eklendiğinde çalışır.  
-    - Örnek olarak, eklendikten sonra basit bir mesaj yazdırıyor   
-      (kritik bir operasyon ekleyip stok güncelleme mantığı vs. yapabilirsiniz).  
+    - Bu tetikleyici, Yayinlar tablosuna yeni bir kayıt eklendiğinde çalışır.   
 */  
 CREATE TRIGGER trg_AfterInsertYayin  
 ON Yayinlar  
@@ -169,6 +167,40 @@ AS
 BEGIN  
     SET NOCOUNT ON;  
     PRINT 'Yeni bir yayın eklendi. (TRIGGER: trg_AfterInsertYayin)';  
+END;  
+GO  
+-- Universiteler tablosuna trigger ekleme  
+CREATE TRIGGER trg_Universiteler_AdresiGuncelle  
+ON Universiteler  
+AFTER UPDATE  
+AS  
+BEGIN  
+    IF UPDATE(adres)  
+    BEGIN  
+        PRINT 'Üniversite adresi güncellendi.';  
+    END  
+END;  
+GO  
+
+-- Bolumler tablosuna trigger ekleme  
+CREATE TRIGGER trg_Bolumler_Ekle  
+ON Bolumler  
+AFTER INSERT  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+    PRINT 'Yeni bir bölüm eklendi.';  
+END;  
+GO  
+
+-- Yazarlar tablosuna trigger ekleme  
+CREATE TRIGGER trg_Yazarlar_Sil  
+ON Yazarlar  
+AFTER DELETE  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+    PRINT 'Bir yazar silindi.';  
 END;  
 GO  
 
